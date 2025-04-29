@@ -19,6 +19,10 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     color: kGreyShade1Color,
   );
+
+  static BorderRadius get customBorder16=> BorderRadius.all(
+    Radius.circular(16.r),
+  );
 }
 
 

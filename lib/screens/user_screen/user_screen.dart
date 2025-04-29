@@ -8,10 +8,10 @@ import '../../../utils/app_styles.dart';
 import '../../custom_widgets/custom_button.dart';
 import '../../custom_widgets/dashboard_container.dart';
 import '../sidemenu/sidemenu.dart';
-import 'controller/dashboard_controller.dart';
+import 'controller/user_controller.dart';
 
-class DashboardScreen extends GetView<DashboardController> {
-  DashboardScreen({super.key});
+class UserScreen extends GetView<UserController> {
+  const UserScreen({super.key});
 
   Widget statusUpdateDialogue(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -198,10 +198,10 @@ class DashboardScreen extends GetView<DashboardController> {
                             SizedBox(width: 22,),
                             Container(
                               decoration: BoxDecoration(
-                                borderRadius: AppStyles.customBorder16
+                                  borderRadius: AppStyles.customBorder16
                               ),
                               child: ClipRRect(
-                                  borderRadius: AppStyles.customBorder16,
+                                borderRadius: AppStyles.customBorder16,
                                 child: Image.asset(kAvatar,fit: BoxFit.cover,),
                               ),
                             ),
@@ -224,7 +224,7 @@ class DashboardScreen extends GetView<DashboardController> {
                             ),
                             SizedBox(width: 20,),
                             InkWell(
-                              onTap: (){},
+                                onTap: (){},
                                 child: Icon(Icons.keyboard_arrow_down_rounded,size: 15,color: kBlueColor,))
                           ],
                         ),
@@ -247,57 +247,112 @@ class DashboardScreen extends GetView<DashboardController> {
                                     width: 202,
                                     height: 112,
                                     color: kPrimaryColor,
-                                    percent: '+11.01%',
-                                    title: "Total Users",
+                                    title: "Total Suppliers",
                                     totalNumber: '1200',
                                     icon: kDoubleUserIcon,
-                                    showIcon: true,
                                   )),
                               GestureDetector(
                                 onTap: () {
-                                  // Get.toNamed(kAnalyticsScreenRoute);
-                                  // menuController.onItemTapped(6);
                                 },
                                 child: DashboardContainer(
                                   width: 202,
                                   height: 112,
                                   color: kDarkPrimaryColor,
-                                  percent: '-0.03%',
-                                  title: "Total Earnings",
-                                  totalNumber: '\$120',
+                                  title: "Total Drivers",
+                                  totalNumber: '1200',
                                   icon: kCashIcon,
-                                  showIcon: true,
                                 ),
                               ),
-                              GestureDetector(
-                                  onTap: () {
-                                    // Get.toNamed(kAnalyticsScreenRoute);
-                                    // menuController.onItemTapped(6);
-                                  },
-                                  child: DashboardContainer(
-                                    width: 202,
-                                    height: 112,
-                                    color: kMiddlePrimaryColor,
-                                    percent: '+15.03',
-                                    title: "Total Orders",
-                                    totalNumber: '1200',
-                                    icon: kCartIcon,
-                                    showIcon: true,
-                                  )),
                             ],
                           ),
                           SizedBox(
                             height: 32.h,
                           ),
-                          Text(
-                            'Incoming Request',
-                            style: AppStyles.blackTextStyle()
-                                .copyWith(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,),
+                          Container(
+                            height: 70,
+                            width: 314,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: kWhiteColor,
+                              border: Border.all(color: kGreyShade3Color,width: 0.6),),
+                            child: Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment.spaceEvenly,
+                              children: [
+                                SvgPicture.asset(
+                                  kFilterIcon,
+                                  height: 23,
+                                  width: 20,
+                                ),
+                                Container(
+                                  width: 0.3,
+                                  color: kGreyShade5Color,
+                                ),
+                                Text(
+                                  "Filter By",
+                                  style: AppStyles.blackTextStyle()
+                                      .copyWith(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600,),
+                                ),
+                                Container(
+                                  width: 0.3,
+                                  color: kGreyShade5Color,
+                                ),
+                                Obx(() {
+                                  return Text(
+                                    controller.selectedOption.value.isEmpty? "User Status" : controller.selectedOption.value,
+                                    style: AppStyles.blackTextStyle().copyWith(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  );
+                                }),
+                                PopupMenuButton<String>(
+                                  color: kWhiteColor,
+                                  borderRadius: BorderRadius.circular(12),
+                                  padding: EdgeInsets.all(0),
+                                  position: PopupMenuPosition.under,
+                                  onSelected: (value) {
+
+                                  },
+                                  itemBuilder: (BuildContext context) {
+                                    return controller.options.map((option) {
+                                      return PopupMenuItem<String>(
+                                        value: option,
+                                        child: Obx(() => Row(
+                                          children: [
+                                            Checkbox(
+                                              value: controller.selectedOption.value == option,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(4),
+                                              ),
+                                              side: BorderSide(color: kBorderColor,width: 1),
+                                              onChanged: (bool? newValue) {
+                                                controller.selectOption(option);
+                                                Navigator.pop(context);
+                                              },
+                                              activeColor: kGreyShade1Color,
+                                            ),
+                                            SizedBox(width: 8),
+                                            Text(option),
+                                          ],
+                                        )),
+                                      );
+                                    }).toList();
+                                  },
+                                  icon: const Icon(
+                                    Icons.keyboard_arrow_down_outlined,
+                                    size: 24,
+                                    color: kGreyShade1Color,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                           SizedBox(
-                            height: 9.h,
+                            height: 32.h,
                           ),
                           Obx(() => Container(
                             width: width,
@@ -330,7 +385,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Request ID",
+                                            "User ID",
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -392,7 +447,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                         headingRowAlignment: MainAxisAlignment.center,
                                         label: Flexible(
                                           child: Text(
-                                            "Status",
+                                            "Pay Req Status",
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:

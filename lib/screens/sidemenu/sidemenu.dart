@@ -35,14 +35,21 @@ class _SideMenuState extends State<SideMenu> {
             SizedBox(
               height: 128,
               child: DrawerHeader(
-                child: SizedBox(
-                    height: 42,
-                    width: 126,
-                    child: Center(
-                      child: Image.asset(
-                        kFullLogo,
-                        fit: BoxFit.contain,
-                      ),)),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 7.0),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                          height: 42,
+                          width: 160,
+                          child: Center(
+                            child: Image.asset(
+                              kFullLogo,
+                              fit: BoxFit.fitWidth,
+                            ),)),
+                    ],
+                  ),
+                ),
               ),
             ),
             Expanded(
@@ -58,7 +65,7 @@ class _SideMenuState extends State<SideMenu> {
                           child: GestureDetector(
                             onTap: () {
                               menuController.onItemTapped(0);
-                              // Get.toNamed(kDashboardScreenRoute);
+                              Get.toNamed(kDashboardScreenRoute);
                             },
                             child: SizedBox(
                               width: width,
@@ -117,7 +124,7 @@ class _SideMenuState extends State<SideMenu> {
                           child: GestureDetector(
                             onTap: () {
                               menuController.onItemTapped(1);
-                              // Get.toNamed(kListingScreenRoute);
+                              Get.toNamed(kUserScreenRoute);
                             },
                             child: SizedBox(
                               width: width,
@@ -176,7 +183,7 @@ class _SideMenuState extends State<SideMenu> {
                           child: GestureDetector(
                             onTap: () {
                               menuController.onItemTapped(2);
-                              // Get.toNamed(kListingScreenRoute);
+                              Get.toNamed(kEmployeeScreenRoute);
                             },
                             child: SizedBox(
                               width: width,
@@ -353,7 +360,7 @@ class _SideMenuState extends State<SideMenu> {
                           child: GestureDetector(
                             onTap: () {
                               menuController.onItemTapped(5);
-                              // Get.toNamed(kListingScreenRoute);
+                              Get.toNamed(kReportScreenRoute);
                             },
                             child: SizedBox(
                               width: width,
