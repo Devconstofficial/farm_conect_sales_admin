@@ -3,6 +3,7 @@ import '../../../utils/app_colors.dart';
 
 class UserController extends GetxController {
   var selectedUserType = ''.obs;
+  var selectedTab = 'User Details'.obs;
   List<String> options = ["Driver", "Supplier"];
   RxString selectedOption = "".obs;
 

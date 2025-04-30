@@ -3,6 +3,7 @@ import '../../../utils/app_colors.dart';
 
 class DashboardController extends GetxController {
   var selectedUserType = ''.obs;
+  var selectedTab = 'Details'.obs;
   List<String> options = ["All", "Active", "Suspended"];
   RxString selectedOption = "".obs;
 

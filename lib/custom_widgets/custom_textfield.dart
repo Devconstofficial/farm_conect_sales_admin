@@ -84,7 +84,7 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: AppStyles.greyTextStyle().copyWith(
-            fontSize: 15.sp,
+            fontSize: 14,
             fontWeight: FontWeight.w300,
             color: hintColor,
           ),

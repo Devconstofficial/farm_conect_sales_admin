@@ -537,9 +537,9 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                             .copyWith(
                                           fontSize: 12,
                                           color:
-                                          controller.isNextButtonDisabled
-                                              ? kWhiteColor
-                                              : kBlackColor,
+                                          controller.isBackButtonDisabled
+                                              ? kBlackColor
+                                              : kWhiteColor,
                                         ),
                                       ),
                                     ],

@@ -5,7 +5,7 @@ import 'app_colors.dart';
 
 class AppStyles {
   static TextStyle blackTextStyle() => GoogleFonts.poppins(
-    fontSize: 26.sp,
+    fontSize: 14.sp,
     fontWeight: FontWeight.w500,
     color: kBlackTextColor,
   );

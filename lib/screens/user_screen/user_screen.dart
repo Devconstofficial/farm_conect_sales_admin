@@ -1,3 +1,4 @@
+import 'package:farmer_sales_admin/custom_widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -5,142 +6,248 @@ import 'package:get/get.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_images.dart';
 import '../../../utils/app_styles.dart';
+import '../../custom_widgets/approve_dialoge.dart';
 import '../../custom_widgets/custom_button.dart';
 import '../../custom_widgets/dashboard_container.dart';
+import '../../custom_widgets/detail_row.dart';
 import '../sidemenu/sidemenu.dart';
 import 'controller/user_controller.dart';
 
 class UserScreen extends GetView<UserController> {
   const UserScreen({super.key});
 
-  Widget statusUpdateDialogue(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-
+  Widget detailsDialogue(BuildContext context) {
     return Dialog(
       backgroundColor: kWhiteColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
       child: SizedBox(
-        width: 400,
+        width: 693,
         child: Padding(
           padding: EdgeInsets.all(24),
-          child: Column(
+          child: Obx(() => Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: SvgPicture.asset(
-                      kCloseIcon,
-                      height: 16,
-                      width: 16,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 32,
-              ),
-              Text(
-                "Update Status",
-                style: AppStyles.blackTextStyle()
-                    .copyWith(fontSize: 14, fontWeight: FontWeight.w500),
-              ),
-              SizedBox(height: 4,),
               Container(
-                height: 40,
-                width: width,
-                decoration: BoxDecoration(
-                    color: kWhiteColor,
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: kBorderColor)),
-                child: Obx(() {
-                  return DropdownButton<String>(
-                    borderRadius: BorderRadius.circular(8),
-                    isExpanded: true,
-                    dropdownColor: kWhiteColor,
-                    focusColor: kWhiteColor,
-                    value: controller.selectedUserType.value.isNotEmpty
-                        ? controller.selectedUserType.value
-                        : null,
-                    hint: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      child: Text(
-                        "Status",
-                        style: AppStyles.blackTextStyle()
-                            .copyWith(fontSize: 14, color: kGreyShade6Color),
-                      ),
-                    ),
-                    icon: Padding(
-                      padding: const EdgeInsets.only(top: 5),
-                      child: Icon(Icons.arrow_drop_down_outlined,
-                          size: 25, color: kBlackColor.withOpacity(0.4)),
-                    ),
-                    underline: const SizedBox.shrink(),
-                    items: ["All", "Active", "Suspended"]
-                        .map((String status) => DropdownMenuItem<String>(
-                      value: status,
-                      child: Padding(
-                        padding:
-                        const EdgeInsets.symmetric(horizontal: 12),
+                  height: 46,
+                  decoration: BoxDecoration(
+                      border: Border(
+                          bottom: BorderSide(
+                              color: kGreyShade5Color,
+                              width: 0.4
+                          )
+                      )
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      GestureDetector(
+                        onTap: (){
+                          controller.selectedTab.value = 'User Details';
+                        },
                         child: Text(
-                          status,
+                          "User Details",
                           style: AppStyles.blackTextStyle()
-                              .copyWith(fontSize: 14),
+                              .copyWith(
+                              fontSize: 14,
+                              fontWeight: controller.selectedTab.value == "User Details" ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "User Details" ? kBlackColor : kDarkBlueColor
+                          ),
                         ),
                       ),
-                    ))
-                        .toList(),
-                    onChanged: (String? newValue) {
-                      controller.selectedUserType.value = newValue!;
-                    },
-                  );
-                }),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
+                      SizedBox(width: 27.w,),
+                      GestureDetector(
+                        onTap: (){
+                          controller.selectedTab.value = 'License Details';
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomButton(
-                    title: "Cancel",
-                    height: 40,
-                    onTap: () {
-                      Get.back();
-                    },
-                    width: 75,
-                    textColor: kBlackColor,
-                    color: kWhiteColor,
-                    borderColor: kBorderColor,
-                    textSize: 12,
-                    fontWeight: FontWeight.w600,
+                        },
+                        child: Text(
+                          "License Details",
+                          style: AppStyles.blackTextStyle()
+                              .copyWith(
+                              fontSize: 14,
+                              fontWeight: controller.selectedTab.value == "License Details" ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "License Details" ? kBlackColor : kDarkBlueColor
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 27.w,),
+                      GestureDetector(
+                        onTap: (){
+                          controller.selectedTab.value = 'Car Details';
+
+                        },
+                        child: Text(
+                          "Car Details",
+                          style: AppStyles.blackTextStyle()
+                              .copyWith(
+                              fontSize: 14,
+                              fontWeight: controller.selectedTab.value == "Car Details" ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "Car Details" ? kBlackColor : kDarkBlueColor
+                          ),
+                        ),
+                      ),
+                      Spacer(),
+                      InkWell(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: SvgPicture.asset(
+                          kCloseIcon,
+                          height: 16,
+                          width: 16,
+                        ),
+                      ),
+                    ],
+                  )
+              ),
+              if(controller.selectedTab.value == 'User Details')
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 24),
+                  child: Column(
+                    spacing: 6,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      DetailRowWidget(title: "Name", detail: "Yasir Nawaz"),
+                      DetailRowWidget(title: "Email", detail: "Yasir Nawaz@gmail.com"),
+                      DetailRowWidget(title: "Phone Number", detail: "Number"),
+                      DetailRowWidget(title: "DOB | Gender", detail: "2024-02-10 | Male"),
+                      DetailRowWidget(title: "ID Card Number | Expiry Date", detail: "54564113 | 28/12"),
+                      DetailRowWidget(title: "Operating Card Number | Expiry Date", detail: "621546454 | 28/12"),
+                      DetailRowWidget(title: "Vehicle", detail: "Car"),
+                    ],
                   ),
-                  CustomButton(
-                    title: "Update Now",
-                    height: 40,
-                    onTap: () {
-                      Get.back();
-                    },
-                    width: 110,
-                    textSize: 12,
-                    fontWeight: FontWeight.w600,
+                ),
+              if(controller.selectedTab.value == 'License Details')
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      DetailRowWidget(title: "License Issuing Country", detail: "UK"),
+                      SizedBox(height: 6,),
+                      DetailRowWidget(title: "Driver License Number", detail: "1231234"),
+                      SizedBox(height: 6,),
+                      DetailRowWidget(title: "License Issuing Date", detail: "2024-02-10"),
+                      SizedBox(height: 6,),
+                      Divider(
+                        color: kBorderColor2,
+                        thickness: 0.4,
+                        height: 0.4,
+                      ),
+                      SizedBox(height: 6,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Driving License",style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
+                              SizedBox(height: 6,),
+                              SizedBox(
+                                height: 174,
+                                width: 274,
+                                child: Image.asset(kIdCardImage,fit: BoxFit.cover,),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("ID Card / Passport",style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
+                              SizedBox(height: 6,),
+                              SizedBox(
+                                height: 174,
+                                width: 274,
+                                child: Image.asset(kIdCardImage,fit: BoxFit.cover,),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                ],
+                ),
+              if(controller.selectedTab.value == 'Car Details')
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 24),
+                  child: Column(
+                    spacing: 6,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      DetailRowWidget(title: "VIN", detail: "515465445"),
+                      DetailRowWidget(title: "Car Model Year", detail: "2024-02-10"),
+                      DetailRowWidget(title: "Make", detail: "--"),
+                      DetailRowWidget(title: "Model", detail: "--"),
+                      DetailRowWidget(title: "Car Location", detail: "--"),
+                      DetailRowWidget(title: "License Plate Number", detail: "--"),
+                      DetailRowWidget(title: "Issued State", detail: "--"),
+                      Divider(
+                        color: kBorderColor2,
+                        thickness: 0.4,
+                        height: 0.4,
+                      ),
+                      Row(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Car Registration",style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
+                              SizedBox(height: 6,),
+                              SizedBox(
+                                height: 174,
+                                width: 274,
+                                child: Image.asset(kIdCardImage,fit: BoxFit.cover,),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              Container(
+                height: 66,
+                decoration: BoxDecoration(
+                    border: Border(
+                        top: BorderSide(
+                            color: kGreyShade5Color,
+                            width: 0.4
+                        )
+                    )
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomButton(title: "Cancel", onTap: (){
+                      Get.back();
+                    },borderColor: kBorderColor2,color: kWhiteColor,height: 40,width: 79,textSize: 14,fontWeight: FontWeight.w600,textColor: kDarkBlueColor,),
+                    CustomButton(title: "Decline Request", onTap: (){
+                      Get.back();
+                    },borderColor: kRedColor,color: kRedColor,height: 40,width: 151,textSize: 14,fontWeight: FontWeight.w600,),
+                    CustomButton(title: "Approve Request", onTap: (){
+                      Get.back();
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return approveDialogue(context);
+                        },
+                      );
+                    },height: 40,width: 151,textSize: 14,fontWeight: FontWeight.w600,),
+                  ],
+                ),
               )
             ],
-          ),
+          ),),
         ),
       ),
     );
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -537,9 +644,9 @@ class UserScreen extends GetView<UserController> {
                                             .copyWith(
                                           fontSize: 12,
                                           color:
-                                          controller.isNextButtonDisabled
-                                              ? kWhiteColor
-                                              : kBlackColor,
+                                          controller.isBackButtonDisabled
+                                              ? kBlackColor
+                                              : kWhiteColor,
                                         ),
                                       ),
                                     ],
@@ -717,12 +824,7 @@ class UserScreen extends GetView<UserController> {
                       cursor: SystemMouseCursors.click,
                       child: GestureDetector(
                         onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return statusUpdateDialogue(context);
-                            },
-                          );
+
                         },
                         child: SvgPicture.asset(
                           kDeleteIcon,
@@ -739,14 +841,12 @@ class UserScreen extends GetView<UserController> {
                       cursor: SystemMouseCursors.click,
                       child: GestureDetector(
                         onTap: () {
-                          // showDialog(
-                          //   context: context,
-                          //   builder: (BuildContext context) {
-                          //     return DeleteDialog(
-                          //       onDelete: () {},
-                          //     );
-                          //   },
-                          // );
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return detailsDialogue(context);
+                            },
+                          );
                         },
                         child: SvgPicture.asset(
                           kEyeIcon,

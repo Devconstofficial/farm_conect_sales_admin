@@ -17,7 +17,10 @@ const Color kGreyShade7Color = Color(0xFF737791);
 const Color kRedColor = Color(0xFFB22234);
 
 const Color kBorderColor = Color(0xFFCBCDCE);
+const Color kBorderColor2 = Color(0xFFC2C6CE);
+const Color kBorderColor3 = Color(0xFFCED4DA);
 const Color kBlueColor = Color(0xFF151D48);
+const Color kDarkBlueColor = Color(0xFF1D1F2C);
 const Color kCreamColor = Color(0xFFFAFBFD);
 const Color kCreamColor2 = Color(0xFFF2F2F2);
 

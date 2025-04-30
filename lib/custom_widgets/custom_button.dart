@@ -22,7 +22,7 @@ class CustomButton extends StatelessWidget {
     required this.title,
     required this.onTap,
     this.textColor = kWhiteColor,
-    this.color = kGreyShade1Color,
+    this.color = kPrimaryColor,
     this.width = double.infinity,
     this.height = 48,
     this.borderRadius = 10,
@@ -59,7 +59,7 @@ class CustomButton extends StatelessWidget {
               title,
               textAlign: TextAlign.center,
               style: AppStyles.whiteTextStyle().copyWith(
-                fontSize: textSize.sp,
+                fontSize: textSize,
                 color: textColor,
                 fontWeight: fontWeight,
               ),

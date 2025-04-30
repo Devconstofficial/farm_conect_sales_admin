@@ -23,7 +23,6 @@ String kReportIcon = "$basePathIcons/reports.svg";
 /// IMAGES
 String kLogo = "$basePath/logo.png";
 String kFullLogo = "$basePath/full_logo.png";
-String kOnboarding1 = "$basePath/onboarding1.jpg";
-String kOnboarding2 = "$basePath/onboarding2.jpg";
+String kIdCardImage = "$basePath/idcard.png";
 
 String kAvatar = "$basePath/avatar.png";

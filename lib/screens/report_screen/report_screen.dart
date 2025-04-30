@@ -504,9 +504,9 @@ class ReportScreen extends GetView<ReportController> {
                                             .copyWith(
                                           fontSize: 12,
                                           color:
-                                          controller.isNextButtonDisabled
-                                              ? kWhiteColor
-                                              : kBlackColor,
+                                          controller.isBackButtonDisabled
+                                              ? kBlackColor
+                                              : kWhiteColor,
                                         ),
                                       ),
                                     ],
@@ -555,7 +555,6 @@ class ReportScreen extends GetView<ReportController> {
                                   );
                                 },
                               ),
-                              // const SizedBox(width: 12,),
                               GestureDetector(
                                 onTap: controller.isNextButtonDisabled
                                     ? null
