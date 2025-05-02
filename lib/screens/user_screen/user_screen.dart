@@ -1,5 +1,6 @@
 import 'package:farmer_sales_admin/custom_widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -45,47 +46,63 @@ class UserScreen extends GetView<UserController> {
                     children: [
                       GestureDetector(
                         onTap: (){
-                          controller.selectedTab.value = 'User Details';
+                          controller.selectedTab.value = 'Revenue Generated';
                         },
                         child: Text(
-                          "User Details",
+                          "Revenue Generated",
                           style: AppStyles.blackTextStyle()
                               .copyWith(
                               fontSize: 14,
-                              fontWeight: controller.selectedTab.value == "User Details" ? FontWeight.w700 : FontWeight.w400,
-                              color: controller.selectedTab.value == "User Details" ? kBlackColor : kDarkBlueColor
+                              fontWeight: controller.selectedTab.value == "Revenue Generated" ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "Revenue Generated" ? kBlackColor : kDarkBlueColor
                           ),
                         ),
                       ),
                       SizedBox(width: 27.w,),
                       GestureDetector(
                         onTap: (){
-                          controller.selectedTab.value = 'License Details';
+                          controller.selectedTab.value = 'Compliance Detail';
 
                         },
                         child: Text(
-                          "License Details",
+                          "Compliance Detail",
                           style: AppStyles.blackTextStyle()
                               .copyWith(
                               fontSize: 14,
-                              fontWeight: controller.selectedTab.value == "License Details" ? FontWeight.w700 : FontWeight.w400,
-                              color: controller.selectedTab.value == "License Details" ? kBlackColor : kDarkBlueColor
+                              fontWeight: controller.selectedTab.value == "Compliance Detail" ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "Compliance Detail" ? kBlackColor : kDarkBlueColor
                           ),
                         ),
                       ),
                       SizedBox(width: 27.w,),
                       GestureDetector(
                         onTap: (){
-                          controller.selectedTab.value = 'Car Details';
+                          controller.selectedTab.value = 'Reviews';
 
                         },
                         child: Text(
-                          "Car Details",
+                          "Reviews",
                           style: AppStyles.blackTextStyle()
                               .copyWith(
                               fontSize: 14,
-                              fontWeight: controller.selectedTab.value == "Car Details" ? FontWeight.w700 : FontWeight.w400,
-                              color: controller.selectedTab.value == "Car Details" ? kBlackColor : kDarkBlueColor
+                              fontWeight: controller.selectedTab.value == "Reviews" ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "Reviews" ? kBlackColor : kDarkBlueColor
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 27.w,),
+                      GestureDetector(
+                        onTap: (){
+                          controller.selectedTab.value = 'Revenue Details';
+
+                        },
+                        child: Text(
+                          "Revenue Details",
+                          style: AppStyles.blackTextStyle()
+                              .copyWith(
+                              fontSize: 14,
+                              fontWeight: controller.selectedTab.value == "Revenue Details" ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "Revenue Details" ? kBlackColor : kDarkBlueColor
                           ),
                         ),
                       ),
@@ -103,108 +120,156 @@ class UserScreen extends GetView<UserController> {
                     ],
                   )
               ),
-              if(controller.selectedTab.value == 'User Details')
+              if(controller.selectedTab.value == 'Revenue Generated')
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 24),
                   child: Column(
                     spacing: 6,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      DetailRowWidget(title: "Name", detail: "Yasir Nawaz"),
-                      DetailRowWidget(title: "Email", detail: "Yasir Nawaz@gmail.com"),
-                      DetailRowWidget(title: "Phone Number", detail: "Number"),
-                      DetailRowWidget(title: "DOB | Gender", detail: "2024-02-10 | Male"),
-                      DetailRowWidget(title: "ID Card Number | Expiry Date", detail: "54564113 | 28/12"),
-                      DetailRowWidget(title: "Operating Card Number | Expiry Date", detail: "621546454 | 28/12"),
-                      DetailRowWidget(title: "Vehicle", detail: "Car"),
-                    ],
-                  ),
-                ),
-              if(controller.selectedTab.value == 'License Details')
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 24),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      DetailRowWidget(title: "License Issuing Country", detail: "UK"),
-                      SizedBox(height: 6,),
-                      DetailRowWidget(title: "Driver License Number", detail: "1231234"),
-                      SizedBox(height: 6,),
-                      DetailRowWidget(title: "License Issuing Date", detail: "2024-02-10"),
-                      SizedBox(height: 6,),
-                      Divider(
-                        color: kBorderColor2,
-                        thickness: 0.4,
-                        height: 0.4,
-                      ),
-                      SizedBox(height: 6,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Driving License",style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
-                              SizedBox(height: 6,),
-                              SizedBox(
-                                height: 174,
-                                width: 274,
-                                child: Image.asset(kIdCardImage,fit: BoxFit.cover,),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("ID Card / Passport",style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
-                              SizedBox(height: 6,),
-                              SizedBox(
-                                height: 174,
-                                width: 274,
-                                child: Image.asset(kIdCardImage,fit: BoxFit.cover,),
-                              ),
-                            ],
-                          ),
+                          DetailRowWidget(title: "Order ID | Revenue Generated", detail: "4548 | \$65"),
+                          Text("DETAILS",style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),)
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          DetailRowWidget(title: "Order ID | Revenue Generated", detail: "4548 | \$65"),
+                          Text("DETAILS",style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),)
                         ],
                       ),
                     ],
                   ),
                 ),
-              if(controller.selectedTab.value == 'Car Details')
+              if(controller.selectedTab.value == 'Compliance Detail')
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 24),
                   child: Column(
                     spacing: 6,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      DetailRowWidget(title: "VIN", detail: "515465445"),
-                      DetailRowWidget(title: "Car Model Year", detail: "2024-02-10"),
-                      DetailRowWidget(title: "Make", detail: "--"),
-                      DetailRowWidget(title: "Model", detail: "--"),
-                      DetailRowWidget(title: "Car Location", detail: "--"),
-                      DetailRowWidget(title: "License Plate Number", detail: "--"),
-                      DetailRowWidget(title: "Issued State", detail: "--"),
-                      Divider(
-                        color: kBorderColor2,
-                        thickness: 0.4,
-                        height: 0.4,
-                      ),
-                      Row(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Car Registration",style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
-                              SizedBox(height: 6,),
-                              SizedBox(
-                                height: 174,
-                                width: 274,
-                                child: Image.asset(kIdCardImage,fit: BoxFit.cover,),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                      DetailRowWidget(title: "Account Verification Status", detail: "Confirmed"),
+                      DetailRowWidget(title: "Completed Order", detail: "44"),
+                      DetailRowWidget(title: "Missed Order", detail: "2"),
+                      DetailRowWidget(title: "Total Previous Withdrawls", detail: "44"),
+                      DetailRowWidget(title: "Any previous payment issues", detail: "No"),
+                    ],
+                  ),
+                ),
+              if(controller.selectedTab.value == 'Reviews')
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 24),
+                  child: Column(
+                    spacing: 6,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ListView.builder(
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: 2,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 12.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      height: 44,
+                                      width: 44,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(100),
+                                      ),
+                                      child: Image.asset(kAvatar2,fit: BoxFit.cover,),
+                                    ),
+                                    SizedBox(
+                                      width: 13,
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Haylie Aminoff",
+                                          style: AppStyles.blackTextStyle()
+                                              .copyWith(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w600,
+                                              color: kDarkBlueColor
+                                          ),
+                                        ),
+                                        Text(
+                                          "32 minutes ago",
+                                          style: AppStyles.blackTextStyle()
+                                              .copyWith(
+                                              fontSize: 10,
+                                              fontWeight: FontWeight.w400,
+                                              color: kGreyShade7Color
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Spacer(),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "4.0",
+                                          style: AppStyles.blackTextStyle()
+                                              .copyWith(
+                                              fontSize: 11,
+                                              fontWeight: FontWeight.w500,
+                                              color: kDarkBlueColor
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        RatingBarIndicator(
+                                          rating: controller.rating.value,
+                                          itemBuilder: (context, index) => Icon(
+                                            Icons.star_rounded,
+                                            color: kAmberColor,
+                                          ),
+                                          itemCount: 5,
+                                          itemSize: 18,
+                                          unratedColor: Colors.grey[300],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 12,),
+                                Text(
+                                  "Lorem ipsum dolor sit amet, consetetur sadi sspscing elitr, sed diam nonumy",
+                                  style: AppStyles.blackTextStyle()
+                                      .copyWith(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      )
+                    ],
+                  ),
+                ),
+              if(controller.selectedTab.value == 'Revenue Details')
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 24),
+                  child: Column(
+                    spacing: 6,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      DetailRowWidget(title: "14/06/2021, 14:24 AM:", detail: "\$100",isEmployeePage: true,),
+                      DetailRowWidget(title: "14/06/2021, 14:24 AM:", detail: "\$100",isEmployeePage: true,),
+                      DetailRowWidget(title: "14/06/2021, 14:24 AM:", detail: "\$100",isEmployeePage: true,),
+                      DetailRowWidget(title: "14/06/2021, 14:24 AM:", detail: "\$100",isEmployeePage: true,),
                     ],
                   ),
                 ),
@@ -225,15 +290,12 @@ class UserScreen extends GetView<UserController> {
                     CustomButton(title: "Cancel", onTap: (){
                       Get.back();
                     },borderColor: kBorderColor2,color: kWhiteColor,height: 40,width: 79,textSize: 14,fontWeight: FontWeight.w600,textColor: kDarkBlueColor,),
-                    CustomButton(title: "Decline Request", onTap: (){
-                      Get.back();
-                    },borderColor: kRedColor,color: kRedColor,height: 40,width: 151,textSize: 14,fontWeight: FontWeight.w600,),
-                    CustomButton(title: "Approve Request", onTap: (){
+                    CustomButton(title: "Apply Deduction", onTap: (){
                       Get.back();
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
-                          return approveDialogue(context);
+                          return approveDialogue(context,isApplyDeduction: true);
                         },
                       );
                     },height: 40,width: 151,textSize: 14,fontWeight: FontWeight.w600,),

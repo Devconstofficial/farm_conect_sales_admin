@@ -3,8 +3,10 @@ import '../../../utils/app_colors.dart';
 
 class EmployeeController extends GetxController {
   var selectedUserType = ''.obs;
+  var selectedTab = 'Revenue Generated'.obs;
   List<String> options = ["Active", "Restricted"];
   RxString selectedOption = "".obs;
+  RxDouble rating = 5.0.obs;
 
   void selectOption(String option) {
     selectedOption.value = option;

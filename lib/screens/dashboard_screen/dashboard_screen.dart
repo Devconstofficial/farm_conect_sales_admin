@@ -44,30 +44,47 @@ class DashboardScreen extends GetView<DashboardController> {
                     children: [
                       GestureDetector(
                         onTap: (){
-                          controller.selectedTab.value = 'Details';
+                          controller.selectedTab.value = 'User Details';
                         },
                         child: Text(
                           "User Details",
                           style: AppStyles.blackTextStyle()
                               .copyWith(
                               fontSize: 14,
-                              fontWeight: controller.selectedTab.value == "Details" ? FontWeight.w700 : FontWeight.w400,
-                              color: controller.selectedTab.value == "Details" ? kBlackColor : kDarkBlueColor
+                              fontWeight: controller.selectedTab.value == "User Details" ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "User Details" ? kBlackColor : kDarkBlueColor
                           ),
                         ),
                       ),
                       SizedBox(width: 27.w,),
                       GestureDetector(
                         onTap: (){
-                          controller.selectedTab.value = 'ID';
+                          controller.selectedTab.value = 'License Details';
+
                         },
                         child: Text(
-                          "Owner ID",
+                          "License Details",
                           style: AppStyles.blackTextStyle()
                               .copyWith(
                               fontSize: 14,
-                              fontWeight: controller.selectedTab.value == "ID" ? FontWeight.w700 : FontWeight.w400,
-                              color: controller.selectedTab.value == "ID" ? kBlackColor : kDarkBlueColor
+                              fontWeight: controller.selectedTab.value == "License Details" ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "License Details" ? kBlackColor : kDarkBlueColor
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 27.w,),
+                      GestureDetector(
+                        onTap: (){
+                          controller.selectedTab.value = 'Car Details';
+
+                        },
+                        child: Text(
+                          "Car Details",
+                          style: AppStyles.blackTextStyle()
+                              .copyWith(
+                              fontSize: 14,
+                              fontWeight: controller.selectedTab.value == "Car Details" ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "Car Details" ? kBlackColor : kDarkBlueColor
                           ),
                         ),
                       ),
@@ -85,32 +102,107 @@ class DashboardScreen extends GetView<DashboardController> {
                     ],
                   )
               ),
-              if(controller.selectedTab.value == 'Details')
+              if(controller.selectedTab.value == 'User Details')
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 24),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     spacing: 6,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       DetailRowWidget(title: "Name", detail: "Yasir Nawaz"),
                       DetailRowWidget(title: "Email", detail: "Yasir Nawaz@gmail.com"),
                       DetailRowWidget(title: "Phone Number", detail: "Number"),
-                      DetailRowWidget(title: "Owner Name", detail: "Name"),
-                      DetailRowWidget(title: "Company Name", detail: "Farmers"),
-                      DetailRowWidget(title: "Commercial Registration number", detail: "564112465"),
+                      DetailRowWidget(title: "DOB | Gender", detail: "2024-02-10 | Male"),
+                      DetailRowWidget(title: "ID Card Number | Expiry Date", detail: "54564113 | 28/12"),
+                      DetailRowWidget(title: "Operating Card Number | Expiry Date", detail: "621546454 | 28/12"),
+                      DetailRowWidget(title: "Vehicle", detail: "Car"),
                     ],
                   ),
                 ),
-              if(controller.selectedTab.value == 'ID')
+              if(controller.selectedTab.value == 'License Details')
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 24),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: 174,
-                        width: 274,
-                        child: Image.asset(kIdCardImage,fit: BoxFit.cover,),
+                      DetailRowWidget(title: "License Issuing Country", detail: "UK"),
+                      SizedBox(height: 6,),
+                      DetailRowWidget(title: "Driver License Number", detail: "1231234"),
+                      SizedBox(height: 6,),
+                      DetailRowWidget(title: "License Issuing Date", detail: "2024-02-10"),
+                      SizedBox(height: 6,),
+                      Divider(
+                        color: kBorderColor2,
+                        thickness: 0.4,
+                        height: 0.4,
+                      ),
+                      SizedBox(height: 6,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Driving License",style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
+                              SizedBox(height: 6,),
+                              SizedBox(
+                                height: 174,
+                                width: 274,
+                                child: Image.asset(kIdCardImage,fit: BoxFit.cover,),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("ID Card / Passport",style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
+                              SizedBox(height: 6,),
+                              SizedBox(
+                                height: 174,
+                                width: 274,
+                                child: Image.asset(kIdCardImage,fit: BoxFit.cover,),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              if(controller.selectedTab.value == 'Car Details')
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 24),
+                  child: Column(
+                    spacing: 6,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      DetailRowWidget(title: "VIN", detail: "515465445"),
+                      DetailRowWidget(title: "Car Model Year", detail: "2024-02-10"),
+                      DetailRowWidget(title: "Make", detail: "--"),
+                      DetailRowWidget(title: "Model", detail: "--"),
+                      DetailRowWidget(title: "Car Location", detail: "--"),
+                      DetailRowWidget(title: "License Plate Number", detail: "--"),
+                      DetailRowWidget(title: "Issued State", detail: "--"),
+                      Divider(
+                        color: kBorderColor2,
+                        thickness: 0.4,
+                        height: 0.4,
+                      ),
+                      Row(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Car Registration",style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
+                              SizedBox(height: 6,),
+                              SizedBox(
+                                height: 174,
+                                width: 274,
+                                child: Image.asset(kIdCardImage,fit: BoxFit.cover,),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ],
                   ),

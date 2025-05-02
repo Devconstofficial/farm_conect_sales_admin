@@ -7,14 +7,14 @@ import '../utils/app_styles.dart';
 import 'custom_button.dart';
 import 'custom_textfield.dart';
 
-Widget approveDialogue(BuildContext context) {
+Widget approveDialogue(BuildContext context, {bool isApplyDeduction = false}) {
   return Dialog(
     backgroundColor: kWhiteColor,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(8),
     ),
     child: SizedBox(
-      width: 320,
+      width: isApplyDeduction == true ? 400 : 320,
       child: Padding(
         padding: EdgeInsets.all(24),
         child: Column(
@@ -38,14 +38,23 @@ Widget approveDialogue(BuildContext context) {
               ],
             ),
             Column(
-              spacing: 2,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                if(isApplyDeduction == true) ...[
+                  Text("Amount to Deduct",style: AppStyles.blackTextStyle(),),
+                  SizedBox(height: 2,),
+                  CustomTextField(
+                    hintText: "\$",
+                    height: 36,
+                    borderColor: kBorderColor3,maxLines: 6,borderRadius: 8,),
+                  SizedBox(height: 16,),
+                ],
                 Text("Explain your reason here",style: AppStyles.blackTextStyle(),),
+                SizedBox(height: 2,),
                 CustomTextField(
                   hintText: "reason of decline goes here....",
                   height: 118,
-                  borderColor: kBorderColor3,maxLines: 6,borderRadius: 8,)
+                  borderColor: kBorderColor3,maxLines: 6,borderRadius: 8,),
               ],
             ),
             Row(
@@ -54,9 +63,9 @@ Widget approveDialogue(BuildContext context) {
                 CustomButton(title: "Cancel", onTap: (){
                   Get.back();
                 },borderColor: kBorderColor2,color: kWhiteColor,height: 40,width: 79,textSize: 14,fontWeight: FontWeight.w600,textColor: kDarkBlueColor,),
-                CustomButton(title: "Confirm", onTap: (){
+                CustomButton(title: isApplyDeduction == true ? "Confirm Deduction" : "Confirm", onTap: (){
                   Get.back();
-                },height: 40,width: 86,textSize: 14,fontWeight: FontWeight.w600,),
+                },height: 40,width: isApplyDeduction == true ? 163 : 86,textSize: 14,fontWeight: FontWeight.w600,),
               ],
             )
           ],

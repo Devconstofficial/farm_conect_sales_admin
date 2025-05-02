@@ -23,4 +23,5 @@ const Color kBlueColor = Color(0xFF151D48);
 const Color kDarkBlueColor = Color(0xFF1D1F2C);
 const Color kCreamColor = Color(0xFFFAFBFD);
 const Color kCreamColor2 = Color(0xFFF2F2F2);
+const Color kAmberColor = Color(0xFFFFC107);
 

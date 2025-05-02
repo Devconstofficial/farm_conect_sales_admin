@@ -1,139 +1,119 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_images.dart';
 import '../../../utils/app_styles.dart';
+import '../../custom_widgets/approve_dialoge.dart';
 import '../../custom_widgets/custom_button.dart';
 import '../../custom_widgets/dashboard_container.dart';
+import '../../custom_widgets/detail_row.dart';
 import '../sidemenu/sidemenu.dart';
 import 'controller/employee_controller.dart';
 
 class EmployeeScreen extends GetView<EmployeeController> {
   const EmployeeScreen({super.key});
 
-  Widget statusUpdateDialogue(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-
+  Widget detailsDialogue(BuildContext context) {
     return Dialog(
       backgroundColor: kWhiteColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
       child: SizedBox(
-        width: 400,
+        width: 693,
         child: Padding(
           padding: EdgeInsets.all(24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: SvgPicture.asset(
-                      kCloseIcon,
-                      height: 16,
-                      width: 16,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 32,
-              ),
-              Text(
-                "Update Status",
-                style: AppStyles.blackTextStyle()
-                    .copyWith(fontSize: 14, fontWeight: FontWeight.w500),
-              ),
-              SizedBox(height: 4,),
               Container(
-                height: 40,
-                width: width,
-                decoration: BoxDecoration(
-                    color: kWhiteColor,
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: kBorderColor)),
-                child: Obx(() {
-                  return DropdownButton<String>(
-                    borderRadius: BorderRadius.circular(8),
-                    isExpanded: true,
-                    dropdownColor: kWhiteColor,
-                    focusColor: kWhiteColor,
-                    value: controller.selectedUserType.value.isNotEmpty
-                        ? controller.selectedUserType.value
-                        : null,
-                    hint: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      child: Text(
-                        "Status",
+                  height: 46,
+                  decoration: BoxDecoration(
+                      border: Border(
+                          bottom: BorderSide(
+                              color: kGreyShade5Color,
+                              width: 0.4
+                          )
+                      )
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Detail Overview",
                         style: AppStyles.blackTextStyle()
-                            .copyWith(fontSize: 14, color: kGreyShade6Color),
-                      ),
-                    ),
-                    icon: Padding(
-                      padding: const EdgeInsets.only(top: 5),
-                      child: Icon(Icons.arrow_drop_down_outlined,
-                          size: 25, color: kBlackColor.withOpacity(0.4)),
-                    ),
-                    underline: const SizedBox.shrink(),
-                    items: ["All", "Active", "Suspended"]
-                        .map((String status) => DropdownMenuItem<String>(
-                      value: status,
-                      child: Padding(
-                        padding:
-                        const EdgeInsets.symmetric(horizontal: 12),
-                        child: Text(
-                          status,
-                          style: AppStyles.blackTextStyle()
-                              .copyWith(fontSize: 14),
+                            .copyWith(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700 ,
+                            color: kBlackColor
                         ),
                       ),
-                    ))
-                        .toList(),
-                    onChanged: (String? newValue) {
-                      controller.selectedUserType.value = newValue!;
-                    },
-                  );
-                }),
+                      Spacer(),
+                      InkWell(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: SvgPicture.asset(
+                          kCloseIcon,
+                          height: 16,
+                          width: 16,
+                        ),
+                      ),
+                    ],
+                  )
               ),
-              const SizedBox(
-                height: 40,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 24),
+                child: Column(
+                  spacing: 6,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    DetailRowWidget(title: "Employee Name", detail: "Alexa"),
+                    DetailRowWidget(title: "Assigned Collection Point", detail: "A, b, c"),
+                    DetailRowWidget(title: "Avg. Approval Time (mins)", detail: "3.5"),
+                    DetailRowWidget(title: "Orders Handled", detail: "12"),
+                    DetailRowWidget(title: "Driver Approvals", detail: "12"),
+                    DetailRowWidget(title: "Supplier Approvals", detail: "12"),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        DetailRowWidget(title: "Average Working Hour", detail: "6.5"),
+                        Text("VIEW DETAILS",style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),)
+                      ],
+                    ),
+                  ],
+                ),
               ),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomButton(
-                    title: "Cancel",
-                    height: 40,
-                    onTap: () {
+              Container(
+                height: 66,
+                decoration: BoxDecoration(
+                    border: Border(
+                        top: BorderSide(
+                            color: kGreyShade5Color,
+                            width: 0.4
+                        )
+                    )
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    CustomButton(title: "Cancel", onTap: (){
                       Get.back();
-                    },
-                    width: 75,
-                    textColor: kBlackColor,
-                    color: kWhiteColor,
-                    borderColor: kBorderColor,
-                    textSize: 12,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  CustomButton(
-                    title: "Update Now",
-                    height: 40,
-                    onTap: () {
+                    },borderColor: kBorderColor2,color: kWhiteColor,height: 40,width: 79,textSize: 14,fontWeight: FontWeight.w600,textColor: kDarkBlueColor,),
+                    Spacer(),
+                    CustomButton(title: "Reassign Collection Point", onTap: (){
                       Get.back();
-                    },
-                    width: 110,
-                    textSize: 12,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ],
+                    },height: 40,width: 210,textSize: 14,fontWeight: FontWeight.w600,),
+                    SizedBox(width: 19,),
+                    CustomButton(title: "De-activate User", onTap: (){
+                      Get.back();
+                    },height: 40,width: 151,textSize: 14,fontWeight: FontWeight.w600,),
+                  ],
+                ),
               )
             ],
           ),
@@ -717,12 +697,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                       cursor: SystemMouseCursors.click,
                       child: GestureDetector(
                         onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return statusUpdateDialogue(context);
-                            },
-                          );
+
                         },
                         child: SvgPicture.asset(
                           kDeleteIcon,
@@ -739,14 +714,12 @@ class EmployeeScreen extends GetView<EmployeeController> {
                       cursor: SystemMouseCursors.click,
                       child: GestureDetector(
                         onTap: () {
-                          // showDialog(
-                          //   context: context,
-                          //   builder: (BuildContext context) {
-                          //     return DeleteDialog(
-                          //       onDelete: () {},
-                          //     );
-                          //   },
-                          // );
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return detailsDialogue(context);
+                            },
+                          );
                         },
                         child: SvgPicture.asset(
                           kEyeIcon,

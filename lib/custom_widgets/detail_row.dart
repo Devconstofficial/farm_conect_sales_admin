@@ -6,7 +6,8 @@ import '../utils/app_styles.dart';
 class DetailRowWidget extends StatelessWidget {
   String title;
   String detail;
-  DetailRowWidget({super.key,required this.title, required this.detail});
+  bool isEmployeePage;
+  DetailRowWidget({super.key,required this.title, required this.detail,this.isEmployeePage = false});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class DetailRowWidget extends StatelessWidget {
               .copyWith(
               fontSize: 16,
               fontWeight: FontWeight.w200,
-              color: kBlackTextColor
+              color: isEmployeePage == true ? kPrimaryColor : kBlackTextColor
           ),
         ),
       ],

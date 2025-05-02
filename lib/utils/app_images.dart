@@ -26,3 +26,4 @@ String kFullLogo = "$basePath/full_logo.png";
 String kIdCardImage = "$basePath/idcard.png";
 
 String kAvatar = "$basePath/avatar.png";
+String kAvatar2 = "$basePath/avatar2.png";
