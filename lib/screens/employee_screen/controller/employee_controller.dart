@@ -5,11 +5,17 @@ class EmployeeController extends GetxController {
   var selectedUserType = ''.obs;
   var selectedTab = 'Revenue Generated'.obs;
   List<String> options = ["Active", "Restricted"];
+  List<String> collectionPoints = ["Collection Point A", "Collection Point B", "Collection Point C"];
   RxString selectedOption = "".obs;
+  RxString selectedCollectionPoints = "".obs;
   RxDouble rating = 5.0.obs;
 
   void selectOption(String option) {
     selectedOption.value = option;
+  }
+
+  void selectCollectionOption(String option) {
+    selectedCollectionPoints.value = option;
   }
 
   void resetSelection() {

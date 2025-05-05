@@ -1,4 +1,5 @@
 import 'package:farmer_sales_admin/custom_widgets/custom_textfield.dart';
+import 'package:farmer_sales_admin/custom_widgets/show_detail_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -131,14 +132,32 @@ class UserScreen extends GetView<UserController> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           DetailRowWidget(title: "Order ID | Revenue Generated", detail: "4548 | \$65"),
-                          Text("DETAILS",style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),)
+                          InkWell(
+                            onTap: (){
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return showDetailDialogue(context);
+                                },
+                              );
+                            },
+                              child: Text("DETAILS",style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),))
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           DetailRowWidget(title: "Order ID | Revenue Generated", detail: "4548 | \$65"),
-                          Text("DETAILS",style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),)
+                          InkWell(
+                              onTap: (){
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return showDetailDialogue(context);
+                                  },
+                                );
+                              },
+                              child: Text("DETAILS",style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),))
                         ],
                       ),
                     ],
@@ -184,7 +203,9 @@ class UserScreen extends GetView<UserController> {
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(100),
                                       ),
-                                      child: Image.asset(kAvatar2,fit: BoxFit.cover,),
+                                      child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(100),
+                                          child: Image.asset(kAvatar2,fit: BoxFit.cover,)),
                                     ),
                                     SizedBox(
                                       width: 13,

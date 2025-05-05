@@ -1,9 +1,7 @@
-
 import 'package:farmer_sales_admin/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
 import '../utils/app_styles.dart';
 
 class TotalRevenueChart extends StatelessWidget {
@@ -13,7 +11,6 @@ class TotalRevenueChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-
       padding: EdgeInsets.symmetric(
         horizontal: 24,
         vertical: 24,

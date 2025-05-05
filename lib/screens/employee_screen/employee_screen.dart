@@ -10,6 +10,7 @@ import '../../custom_widgets/approve_dialoge.dart';
 import '../../custom_widgets/custom_button.dart';
 import '../../custom_widgets/dashboard_container.dart';
 import '../../custom_widgets/detail_row.dart';
+import '../../custom_widgets/show_detail_dialog.dart';
 import '../sidemenu/sidemenu.dart';
 import 'controller/employee_controller.dart';
 
@@ -82,7 +83,16 @@ class EmployeeScreen extends GetView<EmployeeController> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         DetailRowWidget(title: "Average Working Hour", detail: "6.5"),
-                        Text("VIEW DETAILS",style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),)
+                        InkWell(
+                            onTap: (){
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return showDetailDialogue(context);
+                                },
+                              );
+                            },
+                            child: Text("VIEW DETAILS",style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),))
                       ],
                     ),
                   ],
@@ -106,7 +116,89 @@ class EmployeeScreen extends GetView<EmployeeController> {
                     },borderColor: kBorderColor2,color: kWhiteColor,height: 40,width: 79,textSize: 14,fontWeight: FontWeight.w600,textColor: kDarkBlueColor,),
                     Spacer(),
                     CustomButton(title: "Reassign Collection Point", onTap: (){
-                      Get.back();
+                      print("Clicked===============");
+                      showDialog(
+                        context: context,
+                        builder: (_) => Dialog(
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          insetPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+                          backgroundColor: kWhiteColor,
+                          child: SizedBox(
+                            width: 256,
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Container(
+                                    height: 46,
+                                    decoration: BoxDecoration(
+                                        border: Border(
+                                            bottom: BorderSide(
+                                                color: kGreyShade5Color,
+                                                width: 0.4
+                                            )
+                                        )
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          "Detail Overview",
+                                          style: AppStyles.blackTextStyle()
+                                              .copyWith(fontSize: 14, fontWeight: FontWeight.w700),
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            Get.back();
+                                          },
+                                          child: SvgPicture.asset(
+                                            kCloseIcon,
+                                            height: 16,
+                                            width: 16,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Column(
+                                    children: controller.collectionPoints.map((option) {
+                                      return Obx(() => InkWell(
+                                        onTap: () {
+                                          controller.selectCollectionOption(option);
+                                          // Get.back();
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(vertical: 10),
+                                          child: Row(
+                                            children: [
+                                              Checkbox(
+                                                value: controller.selectedCollectionPoints.value == option,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.circular(4),
+                                                ),
+                                                side: BorderSide(color: kBorderColor, width: 1),
+                                                onChanged: (bool? newValue) {
+                                                  controller.selectCollectionOption(option);
+                                                  // Get.back();
+                                                },
+                                                activeColor: kPrimaryColor,
+                                              ),
+                                              const SizedBox(width: 8),
+                                              Text(option,style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w600,fontSize: 14),),
+                                            ],
+                                          ),
+                                        ),
+                                      ));
+                                    }).toList(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+
                     },height: 40,width: 210,textSize: 14,fontWeight: FontWeight.w600,),
                     SizedBox(width: 19,),
                     CustomButton(title: "De-activate User", onTap: (){
