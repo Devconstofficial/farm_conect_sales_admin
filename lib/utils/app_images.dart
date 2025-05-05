@@ -17,6 +17,8 @@ String kNotificationIcon = "$basePathIcons/notification.svg";
 String kLogoutIcon = "$basePathIcons/logout.svg";
 String kDeleteIcon = "$basePathIcons/delete.svg";
 String kReportIcon = "$basePathIcons/reports.svg";
+String kArrowIcon = "$basePathIcons/arrow.png";
+String kSendIcon = "$basePathIcons/sendIcon.png";
 
 
 
@@ -24,6 +26,8 @@ String kReportIcon = "$basePathIcons/reports.svg";
 String kLogo = "$basePath/logo.png";
 String kFullLogo = "$basePath/full_logo.png";
 String kIdCardImage = "$basePath/idcard.png";
+String kFruitImage = "$basePath/fruit.png";
+String kUserImage = "$basePath/user1.png";
 
 String kAvatar = "$basePath/avatar.png";
 String kAvatar2 = "$basePath/avatar2.png";

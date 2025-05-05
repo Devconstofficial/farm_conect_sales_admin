@@ -10,10 +10,12 @@ class DashboardContainer extends StatefulWidget {
   final double? width;
   final String? title;
   final String? totalNumber;
+  final String? totalPer;
   final String? percent;
   final String icon;
   final Color? color;
   final bool? showIcon;
+  final bool? showArrow;
 
   DashboardContainer({
     super.key,
@@ -23,7 +25,9 @@ class DashboardContainer extends StatefulWidget {
     this.icon = '',
     this.percent,
     this.totalNumber,
+    this.totalPer,
     this.showIcon = false,
+    this.showArrow = false,
     this.color,
   });
 
@@ -123,7 +127,6 @@ class _DashboardContainerState extends State<DashboardContainer> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           widget.totalNumber ?? '',
@@ -132,7 +135,19 @@ class _DashboardContainerState extends State<DashboardContainer> {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                      ],
+                        Spacer(),
+                        if(widget.showArrow == true) ...[
+                          Text(
+                            widget.totalPer ?? '',
+                            style: AppStyles.whiteTextStyle().copyWith(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          SizedBox(width: 4,),
+                          Image.asset(kArrowIcon,height: 13,width: 13,)
+                        ]
+                        ],
                     ),
                   ),
                 ),

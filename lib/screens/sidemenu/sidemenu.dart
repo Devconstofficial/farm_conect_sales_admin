@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../utils/app_colors.dart';
@@ -242,7 +241,7 @@ class _SideMenuState extends State<SideMenu> {
                           child: GestureDetector(
                             onTap: () {
                               menuController.onItemTapped(3);
-                              // Get.toNamed(kListingScreenRoute);
+                              Get.toNamed(kChatScreenRoute);
                             },
                             child: SizedBox(
                               width: width,
@@ -301,7 +300,7 @@ class _SideMenuState extends State<SideMenu> {
                           child: GestureDetector(
                             onTap: () {
                               menuController.onItemTapped(4);
-                              // Get.toNamed(kListingScreenRoute);
+                              Get.toNamed(kSalesScreenRoute);
                             },
                             child: SizedBox(
                               width: width,
@@ -426,7 +425,7 @@ class _SideMenuState extends State<SideMenu> {
                   child: GestureDetector(
                     onTap: () {
                       menuController.onItemTapped(5);
-                      // Get.toNamed(kListingScreenRoute);
+                      // Get.offAllNamed(kListingScreenRoute);
                     },
                     child: SizedBox(
                       width: width,

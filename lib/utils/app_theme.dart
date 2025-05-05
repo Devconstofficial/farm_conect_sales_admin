@@ -7,7 +7,7 @@ ThemeData buildTheme(brightness) {
   var baseTheme = ThemeData(brightness: brightness);
 
   return baseTheme.copyWith(
-    textTheme: GoogleFonts.ralewayTextTheme(baseTheme.textTheme),
+    textTheme: GoogleFonts.poppinsTextTheme(baseTheme.textTheme),
     scaffoldBackgroundColor: kWhiteColor,
     colorScheme: ThemeData().colorScheme.copyWith(primary: kPrimaryColor),
   );
