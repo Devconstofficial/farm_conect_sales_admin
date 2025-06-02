@@ -4,6 +4,7 @@ import 'package:farmer_sales_admin/screens/employee_screen/controller/employee_c
 import 'package:farmer_sales_admin/screens/report_screen/controller/report_controller.dart';
 import 'package:get/get.dart';
 
+import '../screens/auth/controller/auth_controller.dart';
 import '../screens/sales_screen/controller/sales_controller.dart';
 import '../screens/user_screen/controller/user_controller.dart';
 
@@ -15,6 +16,8 @@ class ScreenBindings extends Bindings {
     Get.lazyPut(() => EmployeeController());
     Get.lazyPut(() => ReportController());
     Get.lazyPut(() => SalesController());
+    Get.lazyPut(() => AuthController());
     Get.lazyPut(() => ChatController());
+
   }
 }

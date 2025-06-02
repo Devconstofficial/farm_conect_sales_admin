@@ -23,11 +23,11 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return GetMaterialApp(
           theme: buildTheme(Brightness.light),
-          title: 'Farm Connect',
+          title: 'Farm Connect Sales Admin',
           defaultTransition: Transition.noTransition,
           debugShowCheckedModeBanner: false,
           initialBinding: ScreenBindings(),
-          initialRoute: kDashboardScreenRoute,
+          initialRoute: kAuthScreenRoute,
           getPages: RouteGenerator.getPages(),
           builder: (context, child) {
             return  MediaQuery(
