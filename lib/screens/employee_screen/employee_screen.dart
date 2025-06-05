@@ -1,8 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:farmer_sales_admin/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_images.dart';
 import '../../../utils/app_styles.dart';
@@ -45,7 +50,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Detail Overview",
+                        "kDetailOverview".tr(),
                         style: AppStyles.blackTextStyle()
                             .copyWith(
                             fontSize: 14,
@@ -73,16 +78,16 @@ class EmployeeScreen extends GetView<EmployeeController> {
                   spacing: 6,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    DetailRowWidget(title: "Employee Name", detail: "Alexa"),
-                    DetailRowWidget(title: "Assigned Collection Point", detail: "A, b, c"),
-                    DetailRowWidget(title: "Avg. Approval Time (mins)", detail: "3.5"),
-                    DetailRowWidget(title: "Orders Handled", detail: "12"),
-                    DetailRowWidget(title: "Driver Approvals", detail: "12"),
-                    DetailRowWidget(title: "Supplier Approvals", detail: "12"),
+                    DetailRowWidget(title: "kEmployeeName".tr(), detail: "Alexa"),
+                    DetailRowWidget(title: "kAssignedCollectionPoint".tr(), detail: "A, b, c"),
+                    DetailRowWidget(title: "kAvgApprovalTime".tr(), detail: "3.5"),
+                    DetailRowWidget(title: "kOrdersHandled".tr(), detail: "12"),
+                    DetailRowWidget(title: "kDriverApprovals".tr(), detail: "12"),
+                    DetailRowWidget(title: "kSupplierApprovals".tr(), detail: "12"),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        DetailRowWidget(title: "Average Working Hour", detail: "6.5"),
+                        DetailRowWidget(title: kAverageWorkingHour, detail: "6.5"),
                         InkWell(
                             onTap: (){
                               showDialog(
@@ -92,7 +97,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                 },
                               );
                             },
-                            child: Text("VIEW DETAILS",style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),))
+                            child: Text("kDetails".tr(),style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),))
                       ],
                     ),
                   ],
@@ -111,12 +116,11 @@ class EmployeeScreen extends GetView<EmployeeController> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    CustomButton(title: "Cancel", onTap: (){
+                    CustomButton(title: "kCancel".tr(), onTap: (){
                       Get.back();
                     },borderColor: kBorderColor2,color: kWhiteColor,height: 40,width: 79,textSize: 14,fontWeight: FontWeight.w600,textColor: kDarkBlueColor,),
                     Spacer(),
-                    CustomButton(title: "Reassign Collection Point", onTap: (){
-                      print("Clicked===============");
+                    CustomButton(title: "kReassignCollectionPoint".tr(), onTap: (){
                       showDialog(
                         context: context,
                         builder: (_) => Dialog(
@@ -144,7 +148,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          "Detail Overview",
+                                          "kDetailOverview".tr(),
                                           style: AppStyles.blackTextStyle()
                                               .copyWith(fontSize: 14, fontWeight: FontWeight.w700),
                                         ),
@@ -198,10 +202,9 @@ class EmployeeScreen extends GetView<EmployeeController> {
                           ),
                         ),
                       );
-
                     },height: 40,width: 210,textSize: 14,fontWeight: FontWeight.w600,),
                     SizedBox(width: 19,),
-                    CustomButton(title: "De-activate User", onTap: (){
+                    CustomButton(title: "kDeactivateUser".tr(), onTap: (){
                       Get.back();
                     },height: 40,width: 151,textSize: 14,fontWeight: FontWeight.w600,),
                   ],
@@ -244,7 +247,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Employee",
+                              "kEmployee".tr(),
                               style: AppStyles.blackTextStyle().copyWith(
                                   fontSize: 20.sp, fontWeight: FontWeight.w600),
                             ),
@@ -288,7 +291,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                       fontSize: 14.sp, fontWeight: FontWeight.w500,color: kBlueColor),
                                 ),
                                 Text(
-                                  "Admin",
+                                  "kAdmin".tr(),
                                   style: AppStyles.greyTextStyle().copyWith(
                                       fontSize: 12.sp, fontWeight: FontWeight.w400,color: kGreyShade7Color),
                                 ),
@@ -319,7 +322,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                     width: 202,
                                     height: 112,
                                     color: kPrimaryColor,
-                                    title: "Total Sales Emp",
+                                    title: "kTotalSalesEmp".tr(),
                                     totalNumber: '1200',
                                     icon: kDoubleUserIcon,
                                   )),
@@ -330,7 +333,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                   width: 212,
                                   height: 112,
                                   color: kDarkPrimaryColor,
-                                  title: "Total Distribution Emp",
+                                  title: "kTotalDistributionEmp".tr(),
                                   totalNumber: '1200',
                                   icon: kCashIcon,
                                 ),
@@ -361,7 +364,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                   color: kGreyShade5Color,
                                 ),
                                 Text(
-                                  "Filter By",
+                                  "kFilterBy".tr(),
                                   style: AppStyles.blackTextStyle()
                                       .copyWith(
                                     fontSize: 14.sp,
@@ -373,7 +376,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                 ),
                                 Obx(() {
                                   return Text(
-                                    controller.selectedOption.value.isEmpty? "Employee Type" : controller.selectedOption.value,
+                                    controller.selectedOption.value.isEmpty? "kEmployeeType".tr() : controller.selectedOption.value,
                                     style: AppStyles.blackTextStyle().copyWith(
                                       fontSize: 14.sp,
                                       fontWeight: FontWeight.w600,
@@ -457,7 +460,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Emp ID",
+                                            "kEmpId".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -472,7 +475,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Name",
+                                            "kName".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -487,7 +490,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Emp Type",
+                                            "kEmpType".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -502,7 +505,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Email",
+                                            "kEmail".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -519,7 +522,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                         headingRowAlignment: MainAxisAlignment.center,
                                         label: Flexible(
                                           child: Text(
-                                            "Employee Status",
+                                            "kEmployeeStatus".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -536,7 +539,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                         MainAxisAlignment.center,
                                         label: Flexible(
                                           child: Text(
-                                            "Actions",
+                                            "kActions".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -604,7 +607,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                         width: 4,
                                       ),
                                       Text(
-                                        'Back',
+                                        "kBack".tr(),
                                         style: AppStyles.blackTextStyle()
                                             .copyWith(
                                           fontSize: 12,
@@ -682,7 +685,7 @@ class EmployeeScreen extends GetView<EmployeeController> {
                                     CrossAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'Next',
+                                        "kNext".tr(),
                                         style: AppStyles.blackTextStyle()
                                             .copyWith(
                                           fontSize: 12,

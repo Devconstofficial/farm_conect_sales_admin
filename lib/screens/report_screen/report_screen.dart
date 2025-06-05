@@ -1,12 +1,17 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_images.dart';
 import '../../../utils/app_styles.dart';
 import '../../custom_widgets/custom_button.dart';
 import '../../custom_widgets/dashboard_container.dart';
+import '../../utils/app_strings.dart';
 import '../sidemenu/sidemenu.dart';
 import 'controller/report_controller.dart';
 
@@ -48,7 +53,7 @@ class ReportScreen extends GetView<ReportController> {
                 height: 32,
               ),
               Text(
-                "Update Status",
+                "kUpdateStatus".tr(),
                 style: AppStyles.blackTextStyle()
                     .copyWith(fontSize: 14, fontWeight: FontWeight.w500),
               ),
@@ -72,7 +77,7 @@ class ReportScreen extends GetView<ReportController> {
                     hint: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: Text(
-                        "Status",
+                        "kStatus".tr(),
                         style: AppStyles.blackTextStyle()
                             .copyWith(fontSize: 14, color: kGreyShade6Color),
                       ),
@@ -83,7 +88,7 @@ class ReportScreen extends GetView<ReportController> {
                           size: 25, color: kBlackColor.withOpacity(0.4)),
                     ),
                     underline: const SizedBox.shrink(),
-                    items: ["All", "Active", "Suspended"]
+                    items: [kAll, kActive, kSuspended]
                         .map((String status) => DropdownMenuItem<String>(
                       value: status,
                       child: Padding(
@@ -111,7 +116,7 @@ class ReportScreen extends GetView<ReportController> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomButton(
-                    title: "Cancel",
+                    title: "kCancel".tr(),
                     height: 40,
                     onTap: () {
                       Get.back();
@@ -124,7 +129,7 @@ class ReportScreen extends GetView<ReportController> {
                     fontWeight: FontWeight.w600,
                   ),
                   CustomButton(
-                    title: "Update Now",
+                    title: "kUpdateNow".tr(),
                     height: 40,
                     onTap: () {
                       Get.back();
@@ -172,7 +177,7 @@ class ReportScreen extends GetView<ReportController> {
                           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Reports",
+                              "kReports".tr(),
                               style: AppStyles.blackTextStyle().copyWith(
                                   fontSize: 20.sp, fontWeight: FontWeight.w600),
                             ),
@@ -216,7 +221,7 @@ class ReportScreen extends GetView<ReportController> {
                                       fontSize: 14.sp, fontWeight: FontWeight.w500,color: kBlueColor),
                                 ),
                                 Text(
-                                  "Admin",
+                                  "kAdmin".tr(),
                                   style: AppStyles.greyTextStyle().copyWith(
                                       fontSize: 12.sp, fontWeight: FontWeight.w400,color: kGreyShade7Color),
                                 ),
@@ -256,7 +261,7 @@ class ReportScreen extends GetView<ReportController> {
                                   color: kGreyShade5Color,
                                 ),
                                 Text(
-                                  "Filter By",
+                                  "kFilterBy".tr(),
                                   style: AppStyles.blackTextStyle()
                                       .copyWith(
                                     fontSize: 14.sp,
@@ -268,7 +273,7 @@ class ReportScreen extends GetView<ReportController> {
                                 ),
                                 Obx(() {
                                   return Text(
-                                    controller.selectedOption.value.isEmpty? "Employee Type" : controller.selectedOption.value,
+                                    controller.selectedOption.value.isEmpty? "kEmployeeType".tr() : controller.selectedOption.value,
                                     style: AppStyles.blackTextStyle().copyWith(
                                       fontSize: 14.sp,
                                       fontWeight: FontWeight.w600,
@@ -352,7 +357,7 @@ class ReportScreen extends GetView<ReportController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Employee Name",
+                                            "kEmployeeName".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -367,7 +372,7 @@ class ReportScreen extends GetView<ReportController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Emp Type",
+                                            "kEmpType".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -382,7 +387,7 @@ class ReportScreen extends GetView<ReportController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Decisions Taken",
+                                            "kDecisionsTaken".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -397,7 +402,7 @@ class ReportScreen extends GetView<ReportController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Purpose of Decision",
+                                            "kPurposeOfDecision".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -414,7 +419,7 @@ class ReportScreen extends GetView<ReportController> {
                                         headingRowAlignment: MainAxisAlignment.center,
                                         label: Flexible(
                                           child: Text(
-                                            "Approval Status",
+                                            "kApprovalStatus".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -431,7 +436,7 @@ class ReportScreen extends GetView<ReportController> {
                                         MainAxisAlignment.center,
                                         label: Flexible(
                                           child: Text(
-                                            "Actions",
+                                            "kActions".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -499,7 +504,7 @@ class ReportScreen extends GetView<ReportController> {
                                         width: 4,
                                       ),
                                       Text(
-                                        'Back',
+                                        "kBack".tr(),
                                         style: AppStyles.blackTextStyle()
                                             .copyWith(
                                           fontSize: 12,
@@ -576,7 +581,7 @@ class ReportScreen extends GetView<ReportController> {
                                     CrossAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'Next',
+                                        "kNext".tr(),
                                         style: AppStyles.blackTextStyle()
                                             .copyWith(
                                           fontSize: 12,

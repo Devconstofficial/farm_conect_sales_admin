@@ -1,9 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:farmer_sales_admin/screens/sales_screen/controller/sales_controller.dart';
+import 'package:farmer_sales_admin/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_images.dart';
 import '../../../utils/app_styles.dart';
@@ -13,6 +16,7 @@ import '../../custom_widgets/dashboard_container.dart';
 import '../../custom_widgets/detail_row.dart';
 import '../../custom_widgets/revenue_chat.dart';
 import '../sidemenu/sidemenu.dart';
+
 
 class SalesScreen extends GetView<SalesController> {
   const SalesScreen({super.key});
@@ -48,7 +52,7 @@ class SalesScreen extends GetView<SalesController> {
                           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Sales",
+                              "kSales".tr(),
                               style: AppStyles.blackTextStyle().copyWith(
                                   fontSize: 20.sp, fontWeight: FontWeight.w600),
                             ),
@@ -92,7 +96,7 @@ class SalesScreen extends GetView<SalesController> {
                                       fontSize: 14.sp, fontWeight: FontWeight.w500,color: kBlueColor),
                                 ),
                                 Text(
-                                  "Admin",
+                                  "kAdmin".tr(),
                                   style: AppStyles.greyTextStyle().copyWith(
                                       fontSize: 12.sp, fontWeight: FontWeight.w400,color: kGreyShade7Color),
                                 ),
@@ -121,7 +125,7 @@ class SalesScreen extends GetView<SalesController> {
                                     width: 202,
                                     height: 112,
                                     color: kPrimaryColor,
-                                    title: "Total Sales",
+                                    title: "kTotalSales".tr(),
                                     totalNumber: '\$ 12,491',
                                     icon: kDoubleUserIcon,
                                     showArrow: true,
@@ -135,13 +139,13 @@ class SalesScreen extends GetView<SalesController> {
                                   width: 212,
                                   height: 112,
                                   color: kDarkPrimaryColor,
-                                  title: "Total Orders",
+                                  title: "kTotalOrders".tr(),
                                   totalNumber: '121',
                                   icon: kCashIcon,
                                 ),
                               ),
                               Spacer(),
-                              CustomButton(title: "Generate Report", onTap: (){},width: 198.w,textSize: 16.sp,fontWeight: FontWeight.w600,)
+                              CustomButton(title: "kGenerateReport".tr(), onTap: (){},width: 198.w,textSize: 16.sp,fontWeight: FontWeight.w600,)
                             ],
                           ),
                           SizedBox(
@@ -168,7 +172,7 @@ class SalesScreen extends GetView<SalesController> {
                                   color: kGreyShade5Color,
                                 ),
                                 Text(
-                                  "Filter By",
+                                  "kFilterBy".tr(),
                                   style: AppStyles.blackTextStyle()
                                       .copyWith(
                                     fontSize: 14.sp,
@@ -180,7 +184,7 @@ class SalesScreen extends GetView<SalesController> {
                                 ),
                                 Obx(() {
                                   return Text(
-                                    controller.selectedOption.value.isEmpty? "Collection Point" : controller.selectedOption.value,
+                                    controller.selectedOption.value.isEmpty? "kCollectionPoint".tr() : controller.selectedOption.value,
                                     style: AppStyles.blackTextStyle().copyWith(
                                       fontSize: 14.sp,
                                       fontWeight: FontWeight.w600,
@@ -237,7 +241,7 @@ class SalesScreen extends GetView<SalesController> {
                           SizedBox(
                             height: 32.h,
                           ),
-                          Text("Top Products", style: AppStyles.blackTextStyle().copyWith(
+                          Text("kTopProducts".tr(), style: AppStyles.blackTextStyle().copyWith(
                               fontSize: 20, fontWeight: FontWeight.w600)),
                           SizedBox(
                             height: 16.h,

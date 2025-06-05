@@ -1,11 +1,14 @@
-import 'package:get/get.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:farmer_sales_admin/utils/app_strings.dart';
+import 'package:get/get_rx/get_rx.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import '../../../utils/app_colors.dart';
 
 class EmployeeController extends GetxController {
   var selectedUserType = ''.obs;
-  var selectedTab = 'Revenue Generated'.obs;
-  List<String> options = ["Active", "Restricted"];
-  List<String> collectionPoints = ["Collection Point A", "Collection Point B", "Collection Point C"];
+  var selectedTab = "kRevenueGenerated".tr().obs;
+  List<String> options = ["kActive".tr(), "kRestricted".tr()];
+  List<String> collectionPoints = ["${"kCollectionPoint".tr()} A", "${"kCollectionPoint".tr()} B", "${"kCollectionPoint".tr()} C"];
   RxString selectedOption = "".obs;
   RxString selectedCollectionPoints = "".obs;
   RxDouble rating = 5.0.obs;

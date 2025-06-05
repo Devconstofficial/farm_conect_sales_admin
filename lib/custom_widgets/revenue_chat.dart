@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:farmer_sales_admin/utils/app_colors.dart';
+import 'package:farmer_sales_admin/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -26,7 +28,7 @@ class TotalRevenueChart extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Total Revenue",
+                "kTotalRevenue".tr(),
                 style: AppStyles.blackTextStyle().copyWith(
                   fontWeight: FontWeight.w700,
                   fontSize: 14.sp,
@@ -53,7 +55,7 @@ class TotalRevenueChart extends StatelessWidget {
                   ),
                   SizedBox(width: 6),
                   Text(
-                    "Current Week",
+                    "kCurrentWeek".tr(),
                     style: AppStyles.whiteTextStyle().copyWith(
                       fontSize: 13.sp,
                       color: kBlackTextColor2,
@@ -75,7 +77,7 @@ class TotalRevenueChart extends StatelessWidget {
                   ),
                   SizedBox(width: 6),
                   Text(
-                    "Previous Week",
+                    "kPreviousWeek".tr(),
                     style: AppStyles.whiteTextStyle().copyWith(
                       fontSize: 13.sp,
                       color: kBlackTextColor2,
@@ -113,7 +115,7 @@ class TotalRevenueChart extends StatelessWidget {
               ),
               series: <CartesianSeries>[
                 SplineSeries<RevenueData, String>(
-                  name: 'Current Week',
+                  name: "kCurrentWeek".tr(),
                   color: kPrimaryColor,
                   width: 3,
                   markerSettings: MarkerSettings(
@@ -125,7 +127,7 @@ class TotalRevenueChart extends StatelessWidget {
                   yValueMapper: (RevenueData revenue, _) => revenue.revenue,
                 ),
                 SplineSeries<RevenueData, String>(
-                  name: 'Previous Week',
+                  name: "kPreviousWeek".tr(),
                   color: kRedColor,
                   width: 3,
                   // dashArray: const <double>[5, 5],
@@ -143,25 +145,25 @@ class TotalRevenueChart extends StatelessWidget {
 
   List<RevenueData> getCurrentWeekData() {
     return [
-      RevenueData('Jan', 10),
-      RevenueData('Feb', 20),
-      RevenueData('Mar', 15),
-      RevenueData('Apr', 10),
-      RevenueData('May', 12),
-      RevenueData('Jun', 18),
-      RevenueData('Jul', 25),
+      RevenueData("kMonthJan".tr(), 10),
+      RevenueData("kMonthFeb".tr(), 20),
+      RevenueData("kMonthMar".tr(), 15),
+      RevenueData("kMonthApr".tr(), 10),
+      RevenueData("kMonthMay".tr(), 12),
+      RevenueData("kMonthJun".tr(), 18),
+      RevenueData("kMonthJul".tr(), 25),
     ];
   }
 
   List<RevenueData> getPreviousWeekData() {
     return [
-      RevenueData('Jan', 15),
-      RevenueData('Feb', 10),
-      RevenueData('Mar', 18),
-      RevenueData('Apr', 12),
-      RevenueData('May', 15),
-      RevenueData('Jun', 20),
-      RevenueData('Jul', 22),
+      RevenueData("kMonthJan".tr(), 15),
+      RevenueData("kMonthFeb".tr(), 10),
+      RevenueData("kMonthMar".tr(), 18),
+      RevenueData("kMonthApr".tr(), 12),
+      RevenueData("kMonthMay".tr(), 15),
+      RevenueData("kMonthJun".tr(), 20),
+      RevenueData("kMonthJul".tr(), 22),
     ];
   }
 }

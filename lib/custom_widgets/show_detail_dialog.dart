@@ -1,7 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:farmer_sales_admin/custom_widgets/detail_row.dart';
+import 'package:farmer_sales_admin/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_images.dart';
@@ -37,7 +40,7 @@ Widget showDetailDialogue(BuildContext context) {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Order Detail",
+                    "kOrderDetail".tr(),
                     style: AppStyles.blackTextStyle()
                         .copyWith(fontSize: 14, fontWeight: FontWeight.w700),
                   ),
@@ -76,11 +79,11 @@ Widget showDetailDialogue(BuildContext context) {
               ),
             ),
             SizedBox(height: 16,),
-            DetailRowWidget(title: "Order ID", detail: "1712351276"),
+            DetailRowWidget(title: "kOrderId".tr(), detail: "1712351276"),
             SizedBox(height: 6,),
-            DetailRowWidget(title: "Order Status", detail: "Out for Delivery"),
+            DetailRowWidget(title: "kOrderStatus".tr(), detail: "Out for Delivery"),
             SizedBox(height: 6,),
-            DetailRowWidget(title: "Payment Status", detail: "Paid"),
+            DetailRowWidget(title: "kPaymentStatus".tr(), detail: "Paid"),
             const SizedBox(
               height: 20,
             ),
@@ -98,7 +101,7 @@ Widget showDetailDialogue(BuildContext context) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Customer Detail:",
+                      "${"kCustomerDetail".tr()}:",
                       style: AppStyles.blackTextStyle()
                           .copyWith(fontSize: 16, fontWeight: FontWeight.w700),
                     ),
@@ -131,7 +134,7 @@ Widget showDetailDialogue(BuildContext context) {
                                       .copyWith(fontSize: 10, fontWeight: FontWeight.w600),
                                 ),
                                 Text(
-                                  "(60 Reviews)",
+                                  "(60 ${"kReviews".tr()})",
                                   style: AppStyles.greyTextStyle()
                                       .copyWith(fontSize: 10, fontWeight: FontWeight.w600,color: kGreyShade5Color),
                                 ),
@@ -149,7 +152,7 @@ Widget showDetailDialogue(BuildContext context) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Customer Detail:",
+                      "${"kCustomerDetail".tr()}:",
                       style: AppStyles.blackTextStyle()
                           .copyWith(fontSize: 16, fontWeight: FontWeight.w700),
                     ),
@@ -182,7 +185,7 @@ Widget showDetailDialogue(BuildContext context) {
                                       .copyWith(fontSize: 10, fontWeight: FontWeight.w600),
                                 ),
                                 Text(
-                                  "(60 Reviews)",
+                                  "(60 ${"kReviews".tr()})",
                                   style: AppStyles.greyTextStyle()
                                       .copyWith(fontSize: 10, fontWeight: FontWeight.w600,color: kGreyShade5Color),
                                 ),
@@ -212,7 +215,7 @@ Widget showDetailDialogue(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomButton(
-                  title: "Cancel",
+                  title: "kCancel".tr(),
                   height: 40,
                   onTap: () {
                     Get.back();
@@ -225,7 +228,7 @@ Widget showDetailDialogue(BuildContext context) {
                   fontWeight: FontWeight.w600,
                 ),
                 CustomButton(
-                  title: "Hide Details",
+                  title: "kHideDetail".tr(),
                   height: 40,
                   onTap: () {
                     Get.back();

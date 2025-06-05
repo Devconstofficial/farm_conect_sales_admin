@@ -1,10 +1,15 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:farmer_sales_admin/custom_widgets/custom_textfield.dart';
 import 'package:farmer_sales_admin/custom_widgets/show_detail_dialog.dart';
+import 'package:farmer_sales_admin/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_images.dart';
 import '../../../utils/app_styles.dart';
@@ -47,63 +52,60 @@ class UserScreen extends GetView<UserController> {
                     children: [
                       GestureDetector(
                         onTap: (){
-                          controller.selectedTab.value = 'Revenue Generated';
+                          controller.selectedTab.value = "kRevenueGenerated".tr();
                         },
                         child: Text(
-                          "Revenue Generated",
+                          "kRevenueGenerated".tr(),
                           style: AppStyles.blackTextStyle()
                               .copyWith(
                               fontSize: 14,
-                              fontWeight: controller.selectedTab.value == "Revenue Generated" ? FontWeight.w700 : FontWeight.w400,
-                              color: controller.selectedTab.value == "Revenue Generated" ? kBlackColor : kDarkBlueColor
+                              fontWeight: controller.selectedTab.value == "kRevenueGenerated".tr() ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "kRevenueGenerated".tr() ? kBlackColor : kDarkBlueColor
                           ),
                         ),
                       ),
                       SizedBox(width: 27.w,),
                       GestureDetector(
                         onTap: (){
-                          controller.selectedTab.value = 'Compliance Detail';
-
+                          controller.selectedTab.value = "kComplianceDetail".tr();
                         },
                         child: Text(
-                          "Compliance Detail",
+                          "kComplianceDetail".tr(),
                           style: AppStyles.blackTextStyle()
                               .copyWith(
                               fontSize: 14,
-                              fontWeight: controller.selectedTab.value == "Compliance Detail" ? FontWeight.w700 : FontWeight.w400,
-                              color: controller.selectedTab.value == "Compliance Detail" ? kBlackColor : kDarkBlueColor
+                              fontWeight: controller.selectedTab.value == "kComplianceDetail".tr() ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "kComplianceDetail".tr() ? kBlackColor : kDarkBlueColor
                           ),
                         ),
                       ),
                       SizedBox(width: 27.w,),
                       GestureDetector(
                         onTap: (){
-                          controller.selectedTab.value = 'Reviews';
-
+                          controller.selectedTab.value = "kReviews".tr();
                         },
                         child: Text(
-                          "Reviews",
+                          "kReviews".tr(),
                           style: AppStyles.blackTextStyle()
                               .copyWith(
                               fontSize: 14,
-                              fontWeight: controller.selectedTab.value == "Reviews" ? FontWeight.w700 : FontWeight.w400,
-                              color: controller.selectedTab.value == "Reviews" ? kBlackColor : kDarkBlueColor
+                              fontWeight: controller.selectedTab.value == "kReviews".tr() ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "kReviews".tr() ? kBlackColor : kDarkBlueColor
                           ),
                         ),
                       ),
                       SizedBox(width: 27.w,),
                       GestureDetector(
                         onTap: (){
-                          controller.selectedTab.value = 'Revenue Details';
-
+                          controller.selectedTab.value = "kRevenueDetails".tr();
                         },
                         child: Text(
-                          "Revenue Details",
+                          "kRevenueDetails".tr(),
                           style: AppStyles.blackTextStyle()
                               .copyWith(
                               fontSize: 14,
-                              fontWeight: controller.selectedTab.value == "Revenue Details" ? FontWeight.w700 : FontWeight.w400,
-                              color: controller.selectedTab.value == "Revenue Details" ? kBlackColor : kDarkBlueColor
+                              fontWeight: controller.selectedTab.value == "kRevenueDetails".tr() ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "kRevenueDetails".tr() ? kBlackColor : kDarkBlueColor
                           ),
                         ),
                       ),
@@ -121,7 +123,7 @@ class UserScreen extends GetView<UserController> {
                     ],
                   )
               ),
-              if(controller.selectedTab.value == 'Revenue Generated')
+              if(controller.selectedTab.value == "kRevenueGenerated".tr())
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 24),
                   child: Column(
@@ -131,7 +133,7 @@ class UserScreen extends GetView<UserController> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          DetailRowWidget(title: "Order ID | Revenue Generated", detail: "4548 | \$65"),
+                          DetailRowWidget(title: "kOrderIdRevenueGenerated".tr(), detail: "4548 | \$65"),
                           InkWell(
                             onTap: (){
                               showDialog(
@@ -141,13 +143,13 @@ class UserScreen extends GetView<UserController> {
                                 },
                               );
                             },
-                              child: Text("DETAILS",style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),))
+                              child: Text("kDetails".tr(),style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),))
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          DetailRowWidget(title: "Order ID | Revenue Generated", detail: "4548 | \$65"),
+                          DetailRowWidget(title: kOrderIdRevenueGenerated, detail: "4548 | \$65"),
                           InkWell(
                               onTap: (){
                                 showDialog(
@@ -157,28 +159,28 @@ class UserScreen extends GetView<UserController> {
                                   },
                                 );
                               },
-                              child: Text("DETAILS",style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),))
+                              child: Text("kDetails".tr(),style: AppStyles.whiteTextStyle().copyWith(color: kPrimaryColor,fontSize: 12,fontWeight: FontWeight.w400),))
                         ],
                       ),
                     ],
                   ),
                 ),
-              if(controller.selectedTab.value == 'Compliance Detail')
+              if(controller.selectedTab.value == "kComplianceDetail".tr())
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 24),
                   child: Column(
                     spacing: 6,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      DetailRowWidget(title: "Account Verification Status", detail: "Confirmed"),
-                      DetailRowWidget(title: "Completed Order", detail: "44"),
-                      DetailRowWidget(title: "Missed Order", detail: "2"),
-                      DetailRowWidget(title: "Total Previous Withdrawls", detail: "44"),
-                      DetailRowWidget(title: "Any previous payment issues", detail: "No"),
+                      DetailRowWidget(title: "kAccountVerificationStatus".tr(), detail: "Confirmed"),
+                      DetailRowWidget(title: "kCompletedOrder".tr(), detail: "44"),
+                      DetailRowWidget(title: "kMissedOrder".tr(), detail: "2"),
+                      DetailRowWidget(title: "kTotalPreviousWithdrawals".tr(), detail: "44"),
+                      DetailRowWidget(title: "kPreviousPaymentIssues".tr(), detail: "No"),
                     ],
                   ),
                 ),
-              if(controller.selectedTab.value == 'Reviews')
+              if(controller.selectedTab.value == "kReviews".tr())
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 24),
                   child: Column(
@@ -224,7 +226,7 @@ class UserScreen extends GetView<UserController> {
                                           ),
                                         ),
                                         Text(
-                                          "32 minutes ago",
+                                          "32 ${"kMinutesAgo".tr()}",
                                           style: AppStyles.blackTextStyle()
                                               .copyWith(
                                               fontSize: 10,
@@ -280,7 +282,7 @@ class UserScreen extends GetView<UserController> {
                     ],
                   ),
                 ),
-              if(controller.selectedTab.value == 'Revenue Details')
+              if(controller.selectedTab.value == "kRevenueDetails".tr())
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 24),
                   child: Column(
@@ -308,10 +310,10 @@ class UserScreen extends GetView<UserController> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CustomButton(title: "Cancel", onTap: (){
+                    CustomButton(title: "kCancel".tr(), onTap: (){
                       Get.back();
                     },borderColor: kBorderColor2,color: kWhiteColor,height: 40,width: 79,textSize: 14,fontWeight: FontWeight.w600,textColor: kDarkBlueColor,),
-                    CustomButton(title: "Apply Deduction", onTap: (){
+                    CustomButton(title: "kApplyDeduction".tr(), onTap: (){
                       Get.back();
                       showDialog(
                         context: context,
@@ -362,7 +364,7 @@ class UserScreen extends GetView<UserController> {
                           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Dashboard",
+                              "kUsers".tr(),
                               style: AppStyles.blackTextStyle().copyWith(
                                   fontSize: 20.sp, fontWeight: FontWeight.w600),
                             ),
@@ -406,7 +408,7 @@ class UserScreen extends GetView<UserController> {
                                       fontSize: 14.sp, fontWeight: FontWeight.w500,color: kBlueColor),
                                 ),
                                 Text(
-                                  "Admin",
+                                  "kAdmin".tr(),
                                   style: AppStyles.greyTextStyle().copyWith(
                                       fontSize: 12.sp, fontWeight: FontWeight.w400,color: kGreyShade7Color),
                                 ),
@@ -437,7 +439,7 @@ class UserScreen extends GetView<UserController> {
                                     width: 202,
                                     height: 112,
                                     color: kPrimaryColor,
-                                    title: "Total Suppliers",
+                                    title: "kTotalSuppliers".tr(),
                                     totalNumber: '1200',
                                     icon: kDoubleUserIcon,
                                   )),
@@ -448,7 +450,7 @@ class UserScreen extends GetView<UserController> {
                                   width: 202,
                                   height: 112,
                                   color: kDarkPrimaryColor,
-                                  title: "Total Drivers",
+                                  title: "kTotalDrivers".tr(),
                                   totalNumber: '1200',
                                   icon: kCashIcon,
                                 ),
@@ -479,7 +481,7 @@ class UserScreen extends GetView<UserController> {
                                   color: kGreyShade5Color,
                                 ),
                                 Text(
-                                  "Filter By",
+                                  "kFilterBy".tr(),
                                   style: AppStyles.blackTextStyle()
                                       .copyWith(
                                     fontSize: 14.sp,
@@ -491,7 +493,7 @@ class UserScreen extends GetView<UserController> {
                                 ),
                                 Obx(() {
                                   return Text(
-                                    controller.selectedOption.value.isEmpty? "User Status" : controller.selectedOption.value,
+                                    controller.selectedOption.value.isEmpty? "kUserStatus".tr() : controller.selectedOption.value,
                                     style: AppStyles.blackTextStyle().copyWith(
                                       fontSize: 14.sp,
                                       fontWeight: FontWeight.w600,
@@ -575,7 +577,7 @@ class UserScreen extends GetView<UserController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "User ID",
+                                            "kUserId".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -590,7 +592,7 @@ class UserScreen extends GetView<UserController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Name",
+                                            "kName".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -605,7 +607,7 @@ class UserScreen extends GetView<UserController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "User Type",
+                                            "kUserType".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -620,7 +622,7 @@ class UserScreen extends GetView<UserController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Email",
+                                            "kEmail".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -637,7 +639,7 @@ class UserScreen extends GetView<UserController> {
                                         headingRowAlignment: MainAxisAlignment.center,
                                         label: Flexible(
                                           child: Text(
-                                            "Pay Req Status",
+                                            "kPayReqStatus".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -654,7 +656,7 @@ class UserScreen extends GetView<UserController> {
                                         MainAxisAlignment.center,
                                         label: Flexible(
                                           child: Text(
-                                            "Actions",
+                                            "kActions".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -722,7 +724,7 @@ class UserScreen extends GetView<UserController> {
                                         width: 4,
                                       ),
                                       Text(
-                                        'Back',
+                                        "kBack".tr(),
                                         style: AppStyles.blackTextStyle()
                                             .copyWith(
                                           fontSize: 12,
@@ -800,7 +802,7 @@ class UserScreen extends GetView<UserController> {
                                     CrossAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'Next',
+                                        "kNext".tr(),
                                         style: AppStyles.blackTextStyle()
                                             .copyWith(
                                           fontSize: 12,

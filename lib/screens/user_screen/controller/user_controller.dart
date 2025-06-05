@@ -1,11 +1,15 @@
-import 'package:get/get.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:farmer_sales_admin/utils/app_strings.dart';
+import 'package:get/get_rx/get_rx.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+
 import '../../../utils/app_colors.dart';
 
 class UserController extends GetxController {
   var selectedUserType = ''.obs;
   RxDouble rating = 5.0.obs;
-  var selectedTab = 'Revenue Generated'.obs;
-  List<String> options = ["Driver", "Supplier"];
+  var selectedTab = "kRevenueGenerated".tr().obs;
+  List<String> options = ["kDriver".tr(), "kSupplier".tr()];
   RxString selectedOption = "".obs;
 
   void selectOption(String option) {

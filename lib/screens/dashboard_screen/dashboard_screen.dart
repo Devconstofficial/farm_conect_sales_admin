@@ -1,8 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:farmer_sales_admin/custom_widgets/detail_row.dart';
+import 'package:farmer_sales_admin/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_images.dart';
 import '../../../utils/app_styles.dart';
@@ -13,7 +18,7 @@ import '../sidemenu/sidemenu.dart';
 import 'controller/dashboard_controller.dart';
 
 class DashboardScreen extends GetView<DashboardController> {
-  DashboardScreen({super.key});
+  const DashboardScreen({super.key});
 
   Widget detailsDialogue(BuildContext context) {
     return Dialog(
@@ -44,47 +49,47 @@ class DashboardScreen extends GetView<DashboardController> {
                     children: [
                       GestureDetector(
                         onTap: (){
-                          controller.selectedTab.value = 'User Details';
+                          controller.selectedTab.value = "kUserDetails".tr();
                         },
                         child: Text(
-                          "User Details",
+                          "kUserDetails".tr(),
                           style: AppStyles.blackTextStyle()
                               .copyWith(
                               fontSize: 14,
-                              fontWeight: controller.selectedTab.value == "User Details" ? FontWeight.w700 : FontWeight.w400,
-                              color: controller.selectedTab.value == "User Details" ? kBlackColor : kDarkBlueColor
+                              fontWeight: controller.selectedTab.value == "kUserDetails".tr() ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "kUserDetails".tr() ? kBlackColor : kDarkBlueColor
                           ),
                         ),
                       ),
                       SizedBox(width: 27.w,),
                       GestureDetector(
                         onTap: (){
-                          controller.selectedTab.value = 'License Details';
+                          controller.selectedTab.value = "kLicenseDetails".tr();
 
                         },
                         child: Text(
-                          "License Details",
+                          "kLicenseDetails".tr(),
                           style: AppStyles.blackTextStyle()
                               .copyWith(
                               fontSize: 14,
-                              fontWeight: controller.selectedTab.value == "License Details" ? FontWeight.w700 : FontWeight.w400,
-                              color: controller.selectedTab.value == "License Details" ? kBlackColor : kDarkBlueColor
+                              fontWeight: controller.selectedTab.value == "kLicenseDetails".tr() ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "kLicenseDetails".tr() ? kBlackColor : kDarkBlueColor
                           ),
                         ),
                       ),
                       SizedBox(width: 27.w,),
                       GestureDetector(
                         onTap: (){
-                          controller.selectedTab.value = 'Car Details';
+                          controller.selectedTab.value = "kCarDetails".tr();
 
                         },
                         child: Text(
-                          "Car Details",
+                          "kCarDetails".tr(),
                           style: AppStyles.blackTextStyle()
                               .copyWith(
                               fontSize: 14,
-                              fontWeight: controller.selectedTab.value == "Car Details" ? FontWeight.w700 : FontWeight.w400,
-                              color: controller.selectedTab.value == "Car Details" ? kBlackColor : kDarkBlueColor
+                              fontWeight: controller.selectedTab.value == "kCarDetails".tr() ? FontWeight.w700 : FontWeight.w400,
+                              color: controller.selectedTab.value == "kCarDetails".tr() ? kBlackColor : kDarkBlueColor
                           ),
                         ),
                       ),
@@ -102,34 +107,34 @@ class DashboardScreen extends GetView<DashboardController> {
                     ],
                   )
               ),
-              if(controller.selectedTab.value == 'User Details')
+              if(controller.selectedTab.value == "kUserDetails".tr())
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 24),
                   child: Column(
                     spacing: 6,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      DetailRowWidget(title: "Name", detail: "Yasir Nawaz"),
-                      DetailRowWidget(title: "Email", detail: "Yasir Nawaz@gmail.com"),
-                      DetailRowWidget(title: "Phone Number", detail: "Number"),
-                      DetailRowWidget(title: "DOB | Gender", detail: "2024-02-10 | Male"),
-                      DetailRowWidget(title: "ID Card Number | Expiry Date", detail: "54564113 | 28/12"),
-                      DetailRowWidget(title: "Operating Card Number | Expiry Date", detail: "621546454 | 28/12"),
-                      DetailRowWidget(title: "Vehicle", detail: "Car"),
+                      DetailRowWidget(title: "kName".tr(), detail: "Yasir Nawaz"),
+                      DetailRowWidget(title: "kEmail".tr(), detail: "Yasir Nawaz@gmail.com"),
+                      DetailRowWidget(title: "kPhoneNumber".tr(), detail: "Number"),
+                      DetailRowWidget(title: "kDobGender".tr(), detail: "2024-02-10 | Male"),
+                      DetailRowWidget(title: "kIdCardNumberExpiry".tr(), detail: "54564113 | 28/12"),
+                      DetailRowWidget(title: "kOperatingCardNumberExpiry".tr(), detail: "621546454 | 28/12"),
+                      DetailRowWidget(title: "kVehicle".tr(), detail: "Car"),
                     ],
                   ),
                 ),
-              if(controller.selectedTab.value == 'License Details')
+              if(controller.selectedTab.value == "kLicenseDetails".tr())
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 24),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      DetailRowWidget(title: "License Issuing Country", detail: "UK"),
+                      DetailRowWidget(title: "kLicenseIssuingCountry".tr(), detail: "UK"),
                       SizedBox(height: 6,),
-                      DetailRowWidget(title: "Driver License Number", detail: "1231234"),
+                      DetailRowWidget(title: "kDriverLicenseNumber".tr(), detail: "1231234"),
                       SizedBox(height: 6,),
-                      DetailRowWidget(title: "License Issuing Date", detail: "2024-02-10"),
+                      DetailRowWidget(title: "kLicenseIssuingDate".tr(), detail: "2024-02-10"),
                       SizedBox(height: 6,),
                       Divider(
                         color: kBorderColor2,
@@ -143,7 +148,7 @@ class DashboardScreen extends GetView<DashboardController> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Driving License",style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
+                              Text("kDrivingLicense".tr(),style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
                               SizedBox(height: 6,),
                               SizedBox(
                                 height: 174,
@@ -155,7 +160,7 @@ class DashboardScreen extends GetView<DashboardController> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("ID Card / Passport",style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
+                              Text("kIdCardPassport".tr(),style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
                               SizedBox(height: 6,),
                               SizedBox(
                                 height: 174,
@@ -169,20 +174,20 @@ class DashboardScreen extends GetView<DashboardController> {
                     ],
                   ),
                 ),
-              if(controller.selectedTab.value == 'Car Details')
+              if(controller.selectedTab.value == "kCarDetails".tr())
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 24),
                   child: Column(
                     spacing: 6,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      DetailRowWidget(title: "VIN", detail: "515465445"),
-                      DetailRowWidget(title: "Car Model Year", detail: "2024-02-10"),
-                      DetailRowWidget(title: "Make", detail: "--"),
-                      DetailRowWidget(title: "Model", detail: "--"),
-                      DetailRowWidget(title: "Car Location", detail: "--"),
-                      DetailRowWidget(title: "License Plate Number", detail: "--"),
-                      DetailRowWidget(title: "Issued State", detail: "--"),
+                      DetailRowWidget(title: "kVin".tr(), detail: "515465445"),
+                      DetailRowWidget(title: "kCarModelYear".tr(), detail: "2024-02-10"),
+                      DetailRowWidget(title: "kMake".tr(), detail: "--"),
+                      DetailRowWidget(title: "kModel".tr(), detail: "--"),
+                      DetailRowWidget(title: "kCarLocation".tr(), detail: "--"),
+                      DetailRowWidget(title: "kLicensePlateNumber".tr(), detail: "--"),
+                      DetailRowWidget(title: "kIssuedState".tr(), detail: "--"),
                       Divider(
                         color: kBorderColor2,
                         thickness: 0.4,
@@ -193,7 +198,7 @@ class DashboardScreen extends GetView<DashboardController> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Car Registration",style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
+                              Text("kCarRegistration".tr(),style: AppStyles.blackTextStyle().copyWith(fontWeight: FontWeight.w400,fontSize: 16,color: kBlackTextColor),),
                               SizedBox(height: 6,),
                               SizedBox(
                                 height: 174,
@@ -221,13 +226,13 @@ class DashboardScreen extends GetView<DashboardController> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CustomButton(title: "Cancel", onTap: (){
+                    CustomButton(title: "kCancel".tr(), onTap: (){
                       Get.back();
                     },borderColor: kBorderColor2,color: kWhiteColor,height: 40,width: 79,textSize: 14,fontWeight: FontWeight.w600,textColor: kDarkBlueColor,),
-                    CustomButton(title: "Decline Request", onTap: (){
+                    CustomButton(title: "kDeclineRequest".tr(), onTap: (){
                       Get.back();
                     },borderColor: kRedColor,color: kRedColor,height: 40,width: 151,textSize: 14,fontWeight: FontWeight.w600,),
-                    CustomButton(title: "Approve Request", onTap: (){
+                    CustomButton(title: "kApproveRequest".tr(), onTap: (){
                       Get.back();
                       showDialog(
                         context: context,
@@ -276,7 +281,7 @@ class DashboardScreen extends GetView<DashboardController> {
                           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Dashboard",
+                              "kDashboard".tr(),
                               style: AppStyles.blackTextStyle().copyWith(
                                   fontSize: 20.sp, fontWeight: FontWeight.w600),
                             ),
@@ -320,7 +325,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                       fontSize: 14.sp, fontWeight: FontWeight.w500,color: kBlueColor),
                                 ),
                                 Text(
-                                  "Admin",
+                                  "kAdmin".tr(),
                                   style: AppStyles.greyTextStyle().copyWith(
                                       fontSize: 12.sp, fontWeight: FontWeight.w400,color: kGreyShade7Color),
                                 ),
@@ -352,7 +357,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                     height: 112,
                                     color: kPrimaryColor,
                                     percent: '+11.01%',
-                                    title: "Total Users",
+                                    title: "kTotalUsers".tr(),
                                     totalNumber: '1200',
                                     icon: kDoubleUserIcon,
                                     showIcon: true,
@@ -367,7 +372,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                   height: 112,
                                   color: kDarkPrimaryColor,
                                   percent: '-0.03%',
-                                  title: "Total Earnings",
+                                  title: "kTotalEarnings".tr(),
                                   totalNumber: '\$120',
                                   icon: kCashIcon,
                                   showIcon: true,
@@ -383,7 +388,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                     height: 112,
                                     color: kMiddlePrimaryColor,
                                     percent: '+15.03',
-                                    title: "Total Orders",
+                                    title: "kTotalOrders".tr(),
                                     totalNumber: '1200',
                                     icon: kCartIcon,
                                     showIcon: true,
@@ -394,7 +399,7 @@ class DashboardScreen extends GetView<DashboardController> {
                             height: 32.h,
                           ),
                           Text(
-                            'Incoming Request',
+                            "kIncomingRequest".tr(),
                             style: AppStyles.blackTextStyle()
                                 .copyWith(
                               fontSize: 20,
@@ -434,7 +439,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Request ID",
+                                            "kRequestId".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -449,7 +454,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Name",
+                                            "kName".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -464,7 +469,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "User Type",
+                                            "kUserType".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -479,7 +484,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                       DataColumn(
                                         label: Flexible(
                                           child: Text(
-                                            "Email",
+                                            "kEmail".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -496,7 +501,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                         headingRowAlignment: MainAxisAlignment.center,
                                         label: Flexible(
                                           child: Text(
-                                            "Status",
+                                            "kStatus".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -513,7 +518,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                         MainAxisAlignment.center,
                                         label: Flexible(
                                           child: Text(
-                                            "Actions",
+                                            "kActions".tr(),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style:
@@ -581,7 +586,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                         width: 4,
                                       ),
                                       Text(
-                                        'Back',
+                                        "kBack".tr(),
                                         style: AppStyles.blackTextStyle()
                                             .copyWith(
                                           fontSize: 12,
@@ -659,7 +664,7 @@ class DashboardScreen extends GetView<DashboardController> {
                                     CrossAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'Next',
+                                        "kNext".tr(),
                                         style: AppStyles.blackTextStyle()
                                             .copyWith(
                                           fontSize: 12,

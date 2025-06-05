@@ -1,4 +1,173 @@
+const String kAppName = "Farm Connect Sales Admin";
+const String kSignIn = "Sign In";
+const String kSignInSubtitle = "Please fill your detail to access your account.";
+const String kEmail = "Email";
+const String kPassword = "Password";
+const String kRememberMe = "Remember me";
+const String kForgotPassword = "Forgot Password?";
+const String kSignInButton = "Sign In";
+const String kResetPasswordInstruction = "Please enter your email to reset your password.";
+const String kSubmit = "Submit";
+const String kSetNewPassword = "Set New Password";
+const String kNewPassword = "New Password";
+const String kEnterNewPassword = "Please enter your new password.";
+const String kConfirmNewPassword = "Confirm New Password";
+const String kUpdatePassword = "Update Password";
+const String kVerifyOtp = "Verify OTP";
+const String kOtpInstruction = "Please enter the 5 digit OTP to confirm verification.";
+const String kLogout = "Logout";
+const String kReports = "Reports";
+const String kSales = "Sales";
+const String kInbox = "Inbox";
+const String kEmployee = "Employee";
+const String kUsers = "Users";
+const String kDashboard = "Dashboard";
+const String kUserDetails = "User Details";
+const String kLicenseDetails = "License Details";
+const String kCarDetails = "Car Details";
+const String kName = "Name";
+const String kPhoneNumber = "Phone Number";
+const String kDobGender = "DOB | Gender";
+const String kIdCardNumberExpiry = "ID Card Number | Expiry Date";
+const String kOperatingCardNumberExpiry = "Operating Card Number | Expiry Date";
+const String kVehicle = "Vehicle";
+const String kLicenseIssuingCountry = "License Issuing Country";
+const String kDriverLicenseNumber = "Driver License Number";
+const String kLicenseIssuingDate = "License Issuing Date";
+const String kDrivingLicense = "Driving License";
+const String kIdCardPassport = "ID Card / Passport";
+const String kVin = "VIN";
+const String kCarModelYear = "Car Model Year";
+const String kMake = "Make";
+const String kModel = "Model";
+const String kCarLocation = "Car Location";
+const String kLicensePlateNumber = "License Plate Number";
+const String kIssuedState = "Issued State";
+const String kCarRegistration = "Car Registration";
+const String kCancel = "Cancel";
+const String kDeclineRequest = "Decline Request";
+const String kApproveRequest = "Approve Request";
+const String kAdmin = "Admin";
+const String kTotalUsers = "Total Users";
+const String kTotalEarnings = "Total Earnings";
+const String kTotalOrders = "Total Orders";
+const String kIncomingRequest = "Incoming Request";
+const String kRequestId = "Request ID";
+const String kUserType = "User Type";
+const String kStatus = "Status";
+const String kActions = "Actions";
+const String kRevenueGenerated = "Revenue Generated";
+const String kComplianceDetail = "Compliance Detail";
+const String kReviews = "Reviews";
+const String kRevenueDetails = "Revenue Details";
+const String kOrderIdRevenueGenerated = "Order ID | Revenue Generated";
+const String kDetails = "DETAILS";
+const String kAccountVerificationStatus = "Account Verification Status";
+const String kCompletedOrder = "Completed Order";
+const String kMissedOrder = "Missed Order";
+const String kTotalPreviousWithdrawals = "Total Previous Withdrawls";
+const String kPreviousPaymentIssues = "Any previous payment issues";
+const String kMinutesAgo = "minutes ago";
+const String kApplyDeduction = "Apply Deduction";
+const String kAmountToDeduct = "Amount to Deduct";
+const String kExplainYourReason = "Explain your reason here";
+const String kDeclineReasonPlaceholder = "reason of decline goes here....";
+const String kConfirmDeduction = "Confirm Deduction";
+const String kConfirm = "Confirm";
+const String kTotalSuppliers = "Total Suppliers";
+const String kTotalDrivers = "Total Drivers";
+const String kFilterBy = "Filter By";
+const String kUserStatus = "User Status";
+const String kDriver = "Driver";
+const String kSupplier = "Supplier";
+const String kUserId = "User ID";
+const String kPayReqStatus = "Pay Req Status";
+const String kBack = "Back";
+const String kNext = "Next";
+const String kDetailOverview = "Detail Overview";
+const String kEmployeeName = "Employee Name";
+const String kAssignedCollectionPoint = "Assigned Collection Point";
+const String kAvgApprovalTime = "Avg. Approval Time (mins)";
+const String kOrdersHandled = "Orders Handled";
+const String kDriverApprovals = "Driver Approvals";
+const String kSupplierApprovals = "Supplier Approvals";
+const String kAverageWorkingHour = "Average Working Hour";
+const String kReassignCollectionPoint = "Reassign Collection Point";
+const String kCollectionPoint = "Collection Point";
+const String kDeactivateUser = "De-activate User";
+const String kTotalSalesEmp = "Total Sales Emp";
+const String kTotalDistributionEmp = "Total Distribution Emp";
+const String kEmployeeType = "Employee Type";
+const String kActive = "Active";
+const String kRestricted = "Restricted";
+const String kEmpId = "Emp ID";
+const String kEmpType = "Emp Type";
+const String kEmployeeStatus = "Employee Status";
+const String kSearchByUserId = "Search by user id";
+const String kSelectChatToView = "Select a chat to view";
+const String kOnline = "Online";
+const String kNoMessages = "No messages";
+const String kYourMessage = "Your message";
+const String kSend = "Send";
+const String kTotalSales = "Total Sales";
+const String kGenerateReport = "Generate Report";
+const String kTopProducts = "Top Products";
+const String kTotalRevenue = "Total Revenue";
+const String kPreviousWeek = "Previous Week";
+const String kCurrentWeek = "Current Week";
+const String kMonthJan = "Jan";
+const String kMonthFeb = "Feb";
+const String kMonthMar = "Mar";
+const String kMonthApr = "Apr";
+const String kMonthMay = "May";
+const String kMonthJun = "Jun";
+const String kMonthJul = "Jul";
+const String kUpdateStatus = "Update Status";
+const String kAll = "All";
+const String kSuspended = "Suspended";
+const String kUpdateNow = "Update Now";
+const String kApproved = "Approved";
+const String kPending = "Pending";
+const String kRejected = "Rejected";
+const String kDecisionsTaken = "Decisions Taken";
+const String kPurposeOfDecision = "Purpose of Decision";
+const String kApprovalStatus = "Approval Status";
+const String kDeleteAccount = 'Delete Account?';
+const String kDelete = 'Delete';
+const String kDeleteDetail = 'This can\'t be undone.';
+const String kOrderDetail = 'Order Detail';
+const String kOrderId = 'Order ID';
+const String kOrderStatus = 'Order Status';
+const String kPaymentStatus = 'Payment Status';
+const String kCustomerDetail = 'Customer Detail';
+const String kHideDetail = 'Hide Details';
+const String kLanguage = 'Language';
+const String kEnglish = 'English';
+const String kArabic = 'Arabic';
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// routs ===========
 const String kDashboardScreenRoute = "/DashboardScreenRoute";
 const String kUserScreenRoute = "/UserScreenRoute";
 const String kEmployeeScreenRoute = "/EmployeeScreenRoute";

@@ -1,9 +1,12 @@
-import 'package:get/get.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:farmer_sales_admin/utils/app_strings.dart';
+import 'package:get/get_rx/get_rx.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import '../../../utils/app_colors.dart';
 
 class ReportController extends GetxController {
   var selectedUserType = ''.obs;
-  List<String> options = ["Approved", "Pending", "Rejected"];
+  List<String> options = ["kApproved".tr(), "kPending".tr(), "kRejected".tr()];
   RxString selectedOption = "".obs;
 
   void selectOption(String option) {
