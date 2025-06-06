@@ -183,34 +183,34 @@ class AuthScreen extends GetView<AuthController> {
                 height: 44,
               ),
               SizedBox(height: 220.h,),
-              Center(
-                child: MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    onTap: (){
-                      Get.dialog(LanguageDialog());
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: kPrimaryColor
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.language_outlined,color: kWhiteColor,size: 16,),
-                            SizedBox(width: 9,),
-                            Text(controller.selectedLanguageCode.value == "en" ? "kEnglish".tr() : "kArabic".tr(),style: AppStyles.whiteTextStyle().copyWith(fontSize: 12,fontWeight: FontWeight.w600),)
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              )
+              // Center(
+              //   child: MouseRegion(
+              //     cursor: SystemMouseCursors.click,
+              //     child: GestureDetector(
+              //       onTap: (){
+              //         Get.dialog(LanguageDialog());
+              //       },
+              //       child: Container(
+              //         decoration: BoxDecoration(
+              //           borderRadius: BorderRadius.circular(20),
+              //           color: kPrimaryColor
+              //         ),
+              //         child: Padding(
+              //           padding: const EdgeInsets.all(8.0),
+              //           child: Row(
+              //             mainAxisSize: MainAxisSize.min,
+              //             mainAxisAlignment: MainAxisAlignment.center,
+              //             children: [
+              //               Icon(Icons.language_outlined,color: kWhiteColor,size: 16,),
+              //               SizedBox(width: 9,),
+              //               Text(controller.selectedLanguageCode.value == "en" ? "kEnglish".tr() : "kArabic".tr(),style: AppStyles.whiteTextStyle().copyWith(fontSize: 12,fontWeight: FontWeight.w600),)
+              //             ],
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // )
             ],
           ),
         ),
