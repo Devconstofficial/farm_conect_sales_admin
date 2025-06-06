@@ -92,7 +92,7 @@ class AuthScreen extends GetView<AuthController> {
                         obscureText: controller.isPasswordHidden.value,
                         keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
-                          hintText: kPassword,
+                          hintText: "kPassword".tr(),
                           hintStyle: AppStyles.blackTextStyle().copyWith(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,

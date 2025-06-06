@@ -152,21 +152,6 @@ const String kArabic = 'Arabic';
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // routs ===========
 const String kDashboardScreenRoute = "/DashboardScreenRoute";
 const String kUserScreenRoute = "/UserScreenRoute";
